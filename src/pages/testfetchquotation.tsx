@@ -10,7 +10,7 @@ interface DataType {
 }
 
 // Define your component
-const getdata: React.FC = () => {
+const testfetchquotation: React.FC = () => {
   // Define state with the appropriate types
   const [data, setData] = useState<DataType[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -45,4 +45,4 @@ const getdata: React.FC = () => {
   );
 };
 
-export default getdata;
+export default testfetchquotation;
