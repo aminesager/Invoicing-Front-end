@@ -1,6 +1,6 @@
 // pages/get-data.tsx
+import axios from '@/api/axios';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 
 // Define a type for the data you expect from the API
 interface DataType {
@@ -10,7 +10,7 @@ interface DataType {
 }
 
 // Define your component
-const testfetchinvoice: React.FC = () => {
+const Testfetchinvoice = () => {
   // Define state with the appropriate types
   const [data, setData] = useState<DataType[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -20,7 +20,9 @@ const testfetchinvoice: React.FC = () => {
     // Fetch data when the component mounts
     const fetchData = async () => {
       try {
-        const response = await axios.get<DataType[]>('http://localhost:8080/buy-invoice');
+        const response = await axios.get<DataType[]>(
+          'http://localhost:8080/public/expense-invoice'
+        );
         setData(response.data); // Store the response data
       } catch (error) {
         console.error(error);
@@ -45,4 +47,4 @@ const testfetchinvoice: React.FC = () => {
   );
 };
 
-export default testfetchinvoice;
+export default Testfetchinvoice;
