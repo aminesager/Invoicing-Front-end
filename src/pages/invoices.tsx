@@ -10,7 +10,7 @@ interface DataType {
 }
 
 // Define your component
-const Testfetchinvoice = () => {
+const Invoices = () => {
   // Define state with the appropriate types
   const [data, setData] = useState<DataType[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -47,4 +47,4 @@ const Testfetchinvoice = () => {
   );
 };
 
-export default Testfetchinvoice;
+export default Invoices;

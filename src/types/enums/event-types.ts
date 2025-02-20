@@ -43,6 +43,26 @@ export enum EVENT_TYPE {
   SELLING_PAYMENT_UPDATED = 'payment_updated',
   SELLING_PAYMENT_DELETED = 'payment_deleted',
 
+  //Expense Quotation
+  EXPENSE_QUOTATION_CREATED = 'expense-quotation_created',
+  EXPENSE_QUOTATION_UPDATED = 'expense-quotation_updated',
+  EXPENSE_QUOTATION_DELETED = 'expense-quotation_deleted',
+  EXPENSE_QUOTATION_PRINTED = 'expense-quotation_printed',
+  EXPENSE_QUOTATION_INVOICED = 'expense-quotation_invoiced',
+  EXPENSE_QUOTATION_DUPLICATED = 'expense-quotation_duplicated',
+
+  //EXPENSE Invoice
+  EXPENSE_INVOICE_CREATED = 'expense-invoice_created',
+  EXPENSE_INVOICE_UPDATED = 'expense-invoice_updated',
+  EXPENSE_INVOICE_DELETED = 'expense-invoice_deleted',
+  EXPENSE_INVOICE_PRINTED = 'expense-invoice_printed',
+  EXPENSE_INVOICE_DUPLICATED = 'expense-invoice_duplicated',
+
+  //Selling Payment
+  EXPENSE_PAYMENT_CREATED = 'expense-payment_created',
+  EXPENSE_PAYMENT_UPDATED = 'expense-payment_updated',
+  EXPENSE_PAYMENT_DELETED = 'expense-payment_deleted',
+
   //Content
   ACTIVITY_CREATED = 'activity_created',
   ACTIVITY_UPDATED = 'activity_updated',
