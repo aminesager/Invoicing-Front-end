@@ -76,7 +76,7 @@ const getDateRangeAccordingToPaymentConditions = (paymentCondition: PaymentCondi
 
 const initialState: Omit<
   ExpenseQuotationManager,
-  'set' | 'reset' | 'setFirm' | 'setInterlocutor' | 'getQuotation' | 'setQuotation'
+  'set' | 'reset' | 'setFirm' | 'setInterlocutor' | 'getExpenseQuotation' | 'setExpenseQuotation'
 > = {
   id: -1,
   sequentialNumber: {

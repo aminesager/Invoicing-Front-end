@@ -31,7 +31,7 @@ import { ACTIVITY_TYPE } from '@/types/enums/activity-type';
 import { DOCUMENT_TYPE } from '@/types/enums/document-type';
 import { ExpenseQuotationGeneralConditions } from './form/ExpenseQuotationGeneralConditions';
 import { useBreadcrumb } from '@/components/layout/BreadcrumbContext';
-import { ExpenseQuotationGeneralInformation } from './form/QuotationGeneralInformation';
+import { ExpenseQuotationGeneralInformation } from './form/ExpenseQuotationGeneralInformation';
 import { ExpenseQuotationArticleManagement } from './form/ExpenseQuotationArticleManagement';
 import { ExpenseQuotationFinancialInformation } from './form/ExpenseQuotationFinancialInformation';
 import { ExpenseQuotationControlSection } from './form/ExpenseQuotationControlSection';
