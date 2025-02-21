@@ -19,7 +19,7 @@ export enum EXPENSE_QUOTATION_STATUS {
   Sent = 'expense-quotation.status.sent',
   Accepted = 'expense-quotation.status.accepted',
   Rejected = 'expense-quotation.status.rejected',
-  ExpenseInvoiced = 'expense-quotation.status.expense-invoiced'
+  Invoiced = 'expense-quotation.status.expense-invoiced'
 }
 
 export interface ExpenseQuotationTaxEntry extends DatabaseEntity {
@@ -104,7 +104,7 @@ export interface ExpenseQuotation extends DatabaseEntity {
   articleExpenseQuotationEntries?: ArticleExpenseQuotationEntry[];
   expenseQuotationMetaData?: ExpenseQuotationMetaData;
   uploads?: ExpenseQuotationUpload[];
-  invoices: ExpenseInvoice[];
+  expenseInvoices: ExpenseInvoice[];
 }
 
 export interface CreateExpenseQuotationDto

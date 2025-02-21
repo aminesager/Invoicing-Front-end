@@ -5,7 +5,7 @@ import { PagedResponse } from './response';
 import { DatabaseEntity } from './response/DatabaseEntity';
 import { Upload } from './upload';
 
-export enum PAYMENT_MODE {
+export enum EXPENSE_PAYMENT_MODE {
   Cash = 'expense-payment.payment_mode.cash',
   CreditCard = 'expense-payment.payment_mode.credit_card',
   Check = 'expense-payment.payment_mode.check',
@@ -26,7 +26,7 @@ export interface ExpensePaymentInvoiceEntry extends DatabaseEntity {
   expenseInvoiceId?: number;
   expenseInvoice?: ExpenseInvoice;
   expenseIaymentId?: number;
-  payment?: ExpensePayment;
+  expensePayment?: ExpensePayment;
   amount?: number;
 }
 
@@ -36,7 +36,7 @@ export interface ExpensePayment extends DatabaseEntity {
   fee?: number;
   convertionRate?: number;
   date?: string;
-  mode?: PAYMENT_MODE;
+  mode?: EXPENSE_PAYMENT_MODE;
   notes?: string;
   uploads?: ExpensePaymentUpload[];
   invoices?: ExpensePaymentInvoiceEntry[];
@@ -54,13 +54,13 @@ export interface CreateExpensePaymentDto
   files?: File[];
 }
 
-export interface UpdatePaymentDto extends CreateExpensePaymentDto {
+export interface UpdateExpensePaymentDto extends CreateExpensePaymentDto {
   id?: number;
 }
 
-export interface PagedPayment extends PagedResponse<ExpensePayment> {}
+export interface PagedExpensePayment extends PagedResponse<ExpensePayment> {}
 
-export interface PaymentUploadedFile {
+export interface ExpensePaymentUploadedFile {
   upload: ExpensePaymentUpload;
   file: File;
 }

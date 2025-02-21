@@ -36,6 +36,16 @@ import { permission } from './permission';
 export * from './permission';
 import { quotation } from './quotation';
 export * from './quotation';
+
+import { expenseQuotation } from './expense-quotation';
+export * from './expense-quotation';
+/*
+import { expenseInvoice } from './expense-invoice';
+export * from './expense-invoice';
+
+import { expenseQuotation } from './expense-quotation';
+export * from './expense-quotation';
+*/
 import { role } from './role';
 export * from './role';
 import { tax } from './tax';
@@ -70,6 +80,7 @@ export const api = {
   paymentCondition,
   permission,
   quotation,
+  expenseQuotation,
   role,
   tax,
   taxWithholding,

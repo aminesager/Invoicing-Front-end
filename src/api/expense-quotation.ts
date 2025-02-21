@@ -8,7 +8,7 @@ import {
   CreateExpenseQuotationDto,
   DuplicateExpenseQuotationDto,
   PagedExpenseQuotation,
-  ExpenseQUOTATION_STATUS,
+  EXPENSE_QUOTATION_STATUS,
   ExpenseQuotation,
   ExpenseQuotationUploadedFile,
   ToastValidation,
@@ -34,7 +34,7 @@ const factory = (): CreateExpenseQuotationDto => {
     articleExpenseQuotationEntries: [],
     expenseQuotationMetaData: {
       showDeliveryAddress: true,
-      showInvoiceAddress: true,
+      showExpenseInvoiceAddress: true,
       hasBankingDetails: true,
       hasGeneralConditions: true,
       showArticleDescription: true,
@@ -199,9 +199,12 @@ const update = async (
   return response.data;
 };
 
-const invoice = async (id?: number, createInvoice?: boolean): Promise<Quotation> => {
+const expenseInvoice = async (
+  id?: number,
+  createExpenseInvoice?: boolean
+): Promise<ExpenseQuotation> => {
   const response = await axios.put<ExpenseQuotation>(
-    `public/expense-quotation/invoice/${id}/${createInvoice}`
+    `public/expense-quotation/expense-invoice/${id}/${createExpenseInvoice}`
   );
   return response.data;
 };
@@ -226,7 +229,7 @@ const updateExpenseQuotationsSequentials = async (
   updatedSequenceDto: UpdateExpenseQuotationSequentialNumber
 ) => {
   const response = (await axios.put)<ExpenseQuotation>(
-    `/public/expense-quotation/update-quotation-sequences`,
+    `/public/expense-quotation/update-expense-quotation-sequences`,
     updatedSequenceDto
   );
   return response.data;
@@ -239,10 +242,10 @@ export const expenseQuotation = {
   findChoices,
   create,
   download,
-  invoice,
+  expenseInvoice,
   duplicate,
   update,
-  updateQuotationsSequentials,
+  updateExpenseQuotationsSequentials,
   remove,
   validate
 };
