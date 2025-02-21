@@ -1,12 +1,15 @@
-import { Payment } from '@/types';
+import { ExpensePayment } from '@/types';
 import { Badge } from '@/components/ui/badge';
 import { ColumnDef } from '@tanstack/react-table';
 import { DataTableRowActions } from './data-table-row-actions';
 import { DataTableColumnHeader } from './data-table-column-header';
 import { transformDate, transformDateTime } from '@/utils/date.utils';
-import { PAYMENT_FILTER_ATTRIBUTES } from '@/constants/payment-filter.attributes';
+import { EXPENSE_PAYMENT_FILTER_ATTRIBUTES } from '@/constants/expense-payment-filter.attributes';
 
-export const getPaymentColumns = (t: Function, tCurrency: Function): ColumnDef<Payment>[] => {
+export const getExpensePaymentColumns = (
+  t: Function,
+  tCurrency: Function
+): ColumnDef<ExpensePayment>[] => {
   const translationNamespace = 'invoicing';
   const translate = (value: string, namespace: string = '') => {
     return t(value, { ns: namespace || translationNamespace });
@@ -18,8 +21,8 @@ export const getPaymentColumns = (t: Function, tCurrency: Function): ColumnDef<P
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('payment.attributes.number')}
-          attribute={PAYMENT_FILTER_ATTRIBUTES.ID}
+          title={translate('expense-payment.attributes.number')}
+          attribute={EXPENSE_PAYMENT_FILTER_ATTRIBUTES.ID}
         />
       ),
       cell: ({ row }) => <div>PAY-{row.original.id}</div>,
@@ -31,8 +34,8 @@ export const getPaymentColumns = (t: Function, tCurrency: Function): ColumnDef<P
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('payment.attributes.date')}
-          attribute={PAYMENT_FILTER_ATTRIBUTES.DATE}
+          title={translate('expense-payment.attributes.date')}
+          attribute={EXPENSE_PAYMENT_FILTER_ATTRIBUTES.DATE}
         />
       ),
       cell: ({ row }) => (
@@ -46,8 +49,8 @@ export const getPaymentColumns = (t: Function, tCurrency: Function): ColumnDef<P
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('payment.attributes.mode')}
-          attribute={PAYMENT_FILTER_ATTRIBUTES.MODE}
+          title={translate('expense-payment.attributes.mode')}
+          attribute={EXPENSE_PAYMENT_FILTER_ATTRIBUTES.MODE}
         />
       ),
       cell: ({ row }) => (
@@ -63,8 +66,8 @@ export const getPaymentColumns = (t: Function, tCurrency: Function): ColumnDef<P
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('payment.attributes.amount')}
-          attribute={PAYMENT_FILTER_ATTRIBUTES.AMOUNT}
+          title={translate('expense-payment.attributes.amount')}
+          attribute={EXPENSE_PAYMENT_FILTER_ATTRIBUTES.AMOUNT}
         />
       ),
       cell: ({ row }) => (
@@ -81,8 +84,8 @@ export const getPaymentColumns = (t: Function, tCurrency: Function): ColumnDef<P
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('payment.attributes.fee')}
-          attribute={PAYMENT_FILTER_ATTRIBUTES.FEE}
+          title={translate('expense-payment.attributes.fee')}
+          attribute={EXPENSE_PAYMENT_FILTER_ATTRIBUTES.FEE}
         />
       ),
       cell: ({ row }) => (
@@ -99,8 +102,8 @@ export const getPaymentColumns = (t: Function, tCurrency: Function): ColumnDef<P
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('payment.attributes.currency')}
-          attribute={PAYMENT_FILTER_ATTRIBUTES.CURRENCY}
+          title={translate('expense-payment.attributes.currency')}
+          attribute={EXPENSE_PAYMENT_FILTER_ATTRIBUTES.CURRENCY}
         />
       ),
       cell: ({ row }) => (
@@ -111,7 +114,9 @@ export const getPaymentColumns = (t: Function, tCurrency: Function): ColumnDef<P
               {row.original?.currency?.symbol})
             </span>
           ) : (
-            <span className="text-slate-400">{translate('payment.empty_cells.currency')}</span>
+            <span className="text-slate-400">
+              {translate('expense-payment.empty_cells.currency')}
+            </span>
           )}
         </div>
       ),
@@ -123,8 +128,8 @@ export const getPaymentColumns = (t: Function, tCurrency: Function): ColumnDef<P
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('invoice.attributes.created_at')}
-          attribute={PAYMENT_FILTER_ATTRIBUTES.CREATEDAT}
+          title={translate('expense-invoice.attributes.created_at')}
+          attribute={EXPENSE_PAYMENT_FILTER_ATTRIBUTES.CREATEDAT}
         />
       ),
       cell: ({ row }) => <div>{transformDateTime(row.original?.createdAt || '')}</div>,

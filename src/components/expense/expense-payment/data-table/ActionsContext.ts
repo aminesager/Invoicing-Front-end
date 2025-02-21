@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const PaymentActionsContext = React.createContext({
+export const ExpensePaymentActionsContext = React.createContext({
   openDeleteDialog: () => {},
   openDownloadDialog: () => {},
   searchTerm: '',
@@ -15,4 +15,4 @@ export const PaymentActionsContext = React.createContext({
   setSortDetails: (order: boolean, sortKey: string) => {}
 });
 
-export const usePaymentActions = () => React.useContext(PaymentActionsContext);
+export const useExpensePaymentActions = () => React.useContext(ExpensePaymentActionsContext);

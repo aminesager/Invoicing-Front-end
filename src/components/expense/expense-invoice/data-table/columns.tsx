@@ -1,30 +1,30 @@
-import { Invoice } from '@/types';
+import { ExpenseInvoice } from '@/types';
 import { Badge } from '@/components/ui/badge';
 import { ColumnDef } from '@tanstack/react-table';
 import { DataTableRowActions } from './data-table-row-actions';
 import { DataTableColumnHeader } from './data-table-column-header';
 import { transformDate, transformDateTime } from '@/utils/date.utils';
 import { NextRouter } from 'next/router';
-import { INVOICE_FILTER_ATTRIBUTES } from '@/constants/invoice.filter-attributes';
+import { EXPENSE_INVOICE_FILTER_ATTRIBUTES } from '@/constants/expense-invoice.filter-attributes';
 
-export const getInvoiceColumns = (
+export const getExpenseInvoiceColumns = (
   t: Function,
   router: NextRouter,
   firmId?: number,
   interlocutorId?: number
-): ColumnDef<Invoice>[] => {
+): ColumnDef<ExpenseInvoice>[] => {
   const translationNamespace = 'invoicing';
   const translate = (value: string, namespace: string = '') => {
     return t(value, { ns: namespace || translationNamespace });
   };
 
-  const firmColumn: ColumnDef<Invoice> = {
+  const firmColumn: ColumnDef<ExpenseInvoice> = {
     accessorKey: 'firm',
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
-        title={translate('quotation.attributes.firm')}
-        attribute={INVOICE_FILTER_ATTRIBUTES.FIRM}
+        title={translate('expense-quotation.attributes.firm')}
+        attribute={EXPENSE_INVOICE_FILTER_ATTRIBUTES.FIRM}
       />
     ),
     cell: ({ row }) => (
@@ -38,13 +38,13 @@ export const getInvoiceColumns = (
     enableHiding: true
   };
 
-  const interlocutorColumn: ColumnDef<Invoice> = {
+  const interlocutorColumn: ColumnDef<ExpenseInvoice> = {
     accessorKey: 'interlocutor',
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
-        title={translate('quotation.attributes.interlocutor')}
-        attribute={INVOICE_FILTER_ATTRIBUTES.INTERLOCUTOR}
+        title={translate('expense-quotation.attributes.interlocutor')}
+        attribute={EXPENSE_INVOICE_FILTER_ATTRIBUTES.INTERLOCUTOR}
       />
     ),
     cell: ({ row }) => (
@@ -58,14 +58,14 @@ export const getInvoiceColumns = (
     enableHiding: true
   };
 
-  const columns: ColumnDef<Invoice>[] = [
+  const columns: ColumnDef<ExpenseInvoice>[] = [
     {
       accessorKey: 'number',
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
           title={translate('invoice.attributes.number')}
-          attribute={INVOICE_FILTER_ATTRIBUTES.SEQUENTIAL}
+          attribute={EXPENSE_INVOICE_FILTER_ATTRIBUTES.SEQUENTIAL}
         />
       ),
       cell: ({ row }) => <div>{row.original.sequential}</div>,
@@ -78,7 +78,7 @@ export const getInvoiceColumns = (
         <DataTableColumnHeader
           column={column}
           title={translate('invoice.attributes.date')}
-          attribute={INVOICE_FILTER_ATTRIBUTES.DATE}
+          attribute={EXPENSE_INVOICE_FILTER_ATTRIBUTES.DATE}
         />
       ),
       cell: ({ row }) => (
@@ -99,7 +99,7 @@ export const getInvoiceColumns = (
         <DataTableColumnHeader
           column={column}
           title={translate('invoice.attributes.due_date')}
-          attribute={INVOICE_FILTER_ATTRIBUTES.DUEDATE}
+          attribute={EXPENSE_INVOICE_FILTER_ATTRIBUTES.DUEDATE}
         />
       ),
       cell: ({ row }) => (
@@ -120,7 +120,7 @@ export const getInvoiceColumns = (
         <DataTableColumnHeader
           column={column}
           title={translate('invoice.attributes.status')}
-          attribute={INVOICE_FILTER_ATTRIBUTES.STATUS}
+          attribute={EXPENSE_INVOICE_FILTER_ATTRIBUTES.STATUS}
         />
       ),
       cell: ({ row }) => (
@@ -137,7 +137,7 @@ export const getInvoiceColumns = (
         <DataTableColumnHeader
           column={column}
           title={translate('invoice.attributes.total')}
-          attribute={INVOICE_FILTER_ATTRIBUTES.TOTAL}
+          attribute={EXPENSE_INVOICE_FILTER_ATTRIBUTES.TOTAL}
         />
       ),
       cell: ({ row }) => (
@@ -155,7 +155,7 @@ export const getInvoiceColumns = (
         <DataTableColumnHeader
           column={column}
           title={translate('invoice.attributes.amount_paid')}
-          attribute={INVOICE_FILTER_ATTRIBUTES.AMOUNT_PAID}
+          attribute={EXPENSE_INVOICE_FILTER_ATTRIBUTES.AMOUNT_PAID}
         />
       ),
       cell: ({ row }) => (
@@ -173,7 +173,7 @@ export const getInvoiceColumns = (
         <DataTableColumnHeader
           column={column}
           title={translate('invoice.attributes.withholding')}
-          attribute={INVOICE_FILTER_ATTRIBUTES.TAX_WITHHOLDING}
+          attribute={EXPENSE_INVOICE_FILTER_ATTRIBUTES.TAX_WITHHOLDING}
         />
       ),
       cell: ({ row }) => (
@@ -191,7 +191,7 @@ export const getInvoiceColumns = (
         <DataTableColumnHeader
           column={column}
           title={translate('invoice.attributes.created_at')}
-          attribute={INVOICE_FILTER_ATTRIBUTES.CREATEDAT}
+          attribute={EXPENSE_INVOICE_FILTER_ATTRIBUTES.CREATEDAT}
         />
       ),
       cell: ({ row }) => <div>{transformDateTime(row.original?.createdAt || '')}</div>,

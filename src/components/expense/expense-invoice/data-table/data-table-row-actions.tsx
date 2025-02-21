@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { Invoice } from '@/types';
+import { ExpenseInvoice } from '@/types';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -13,23 +13,23 @@ import { DotsHorizontalIcon } from '@radix-ui/react-icons';
 import { Row } from '@tanstack/react-table';
 import { useTranslation } from 'react-i18next';
 import { Copy, Download, Settings2, Telescope, Trash2 } from 'lucide-react';
-import { useInvoiceManager } from '../hooks/useInvoiceManager';
-import { useInvoiceActions } from './ActionsContext';
+import { useExpenseInvoiceManager } from '../hooks/useExpenseInvoiceManager';
+import { useExpenseInvoiceActions } from './ActionsContext';
 
 interface DataTableRowActionsProps {
-  row: Row<Invoice>;
+  row: Row<ExpenseInvoice>;
 }
 
 export function DataTableRowActions({ row }: DataTableRowActionsProps) {
-  const invoice = row.original;
+  const expenseInvoice = row.original;
   const { t: tCommon } = useTranslation('common');
   const router = useRouter();
-  const invoiceManager = useInvoiceManager();
-  const { openDeleteDialog, openDownloadDialog, openDuplicateDialog } = useInvoiceActions();
+  const expenseInvoiceManager = useExpenseInvoiceManager();
+  const { openDeleteDialog, openDownloadDialog, openDuplicateDialog } = useExpenseInvoiceActions();
 
-  const targetInvoice = () => {
-    invoiceManager.set('id', invoice?.id);
-    invoiceManager.set('sequential', invoice?.sequential);
+  const targetExpenseInvoice = () => {
+    expenseInvoiceManager.set('id', expenseInvoice?.id);
+    expenseInvoiceManager.set('sequential', expenseInvoice?.sequential);
   };
 
   return (
@@ -43,13 +43,14 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
         <DropdownMenuLabel className="text-center">{tCommon('commands.actions')}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {/* Inspect */}
-        <DropdownMenuItem onClick={() => router.push('/selling/invoice/' + invoice.id)}>
+        <DropdownMenuItem
+          onClick={() => router.push('/expense/expense-invoice/' + expenseInvoice.id)}>
           <Telescope className="h-5 w-5 mr-2" /> {tCommon('commands.inspect')}
         </DropdownMenuItem>
         {/* Print */}
         <DropdownMenuItem
           onClick={() => {
-            targetInvoice();
+            targetExpenseInvoice();
             openDownloadDialog?.();
           }}>
           <Download className="h-5 w-5 mr-2" /> {tCommon('commands.download')}
@@ -57,17 +58,18 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
         {/* Duplicate */}
         <DropdownMenuItem
           onClick={() => {
-            targetInvoice();
+            targetExpenseInvoice();
             openDuplicateDialog?.();
           }}>
           <Copy className="h-5 w-5 mr-2" /> {tCommon('commands.duplicate')}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => router.push('/selling/invoice/' + invoice.id)}>
+        <DropdownMenuItem
+          onClick={() => router.push('/expense/expense-invoice/' + expenseInvoice.id)}>
           <Settings2 className="h-5 w-5 mr-2" /> {tCommon('commands.modify')}
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => {
-            targetInvoice();
+            targetExpenseInvoice();
             openDeleteDialog?.();
           }}>
           <Trash2 className="h-5 w-5 mr-2" /> {tCommon('commands.delete')}

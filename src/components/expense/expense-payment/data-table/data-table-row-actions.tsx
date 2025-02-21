@@ -13,22 +13,22 @@ import { DotsHorizontalIcon } from '@radix-ui/react-icons';
 import { Row } from '@tanstack/react-table';
 import { useTranslation } from 'react-i18next';
 import { Download, Settings2, Telescope, Trash2 } from 'lucide-react';
-import { usePaymentActions } from './ActionsContext';
-import { usePaymentManager } from '../hooks/usePaymentManager';
+import { useExpensePaymentActions } from './ActionsContext';
+import { useExpensePaymentManager } from '../hooks/useExpensePaymentManager';
 
 interface DataTableRowActionsProps {
   row: Row<Invoice>;
 }
 
 export function DataTableRowActions({ row }: DataTableRowActionsProps) {
-  const payment = row.original;
+  const expensePayment = row.original;
   const { t: tCommon } = useTranslation('common');
   const router = useRouter();
-  const paymentManager = usePaymentManager();
-  const { openDeleteDialog, openDownloadDialog } = usePaymentActions();
+  const expensePaymentManager = useExpensePaymentManager();
+  const { openDeleteDialog, openDownloadDialog } = useExpensePaymentActions();
 
   const targetInvoice = () => {
-    paymentManager.set('id', payment?.id);
+    expensePaymentManager.set('id', expensePayment?.id);
   };
 
   return (
@@ -42,7 +42,8 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
         <DropdownMenuLabel className="text-center">{tCommon('commands.actions')}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {/* Inspect */}
-        <DropdownMenuItem onClick={() => router.push('/selling/payment/' + payment.id)}>
+        <DropdownMenuItem
+          onClick={() => router.push('/expense/expense-payment/' + expensePayment.id)}>
           <Telescope className="h-5 w-5 mr-2" /> {tCommon('commands.inspect')}
         </DropdownMenuItem>
         {/* Print */}
@@ -61,7 +62,8 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
           }}>
           <Copy className="h-5 w-5 mr-2" /> {tCommon('commands.duplicate')}
         </DropdownMenuItem> */}
-        <DropdownMenuItem onClick={() => router.push('/selling/payment/' + payment.id)}>
+        <DropdownMenuItem
+          onClick={() => router.push('/expense/expense-payment/' + expensePayment.id)}>
           <Settings2 className="h-5 w-5 mr-2" /> {tCommon('commands.modify')}
         </DropdownMenuItem>
         <DropdownMenuItem

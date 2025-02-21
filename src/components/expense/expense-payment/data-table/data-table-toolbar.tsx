@@ -6,7 +6,7 @@ import { PackagePlus } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
 import { DataTableViewOptions } from './data-table-view-options';
-import { usePaymentActions } from './ActionsContext';
+import { useExpensePaymentActions } from './ActionsContext';
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -17,13 +17,13 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
   const { t: tCommon } = useTranslation('common');
   const { t: tInvoicing } = useTranslation('invoicing');
 
-  const { setPage, searchTerm, setSearchTerm } = usePaymentActions();
+  const { setPage, searchTerm, setSearchTerm } = useExpensePaymentActions();
   return (
     <div className="flex items-center justify-between gap-2">
       <div className="flex flex-1 items-center space-x-2">
         <Input
           placeholder={tCommon('table.filter_placeholder', {
-            entity: tInvoicing('payment.plural')
+            entity: tInvoicing('expense-payment.plural')
           })}
           value={searchTerm.toString()}
           onChange={(event) => {
@@ -43,10 +43,10 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
         className="h-8 px-2 lg:px-3"
         variant="ghost"
         onClick={() => {
-          router.push('/selling/new-payment');
+          router.push('/expense/new-expense-payment');
         }}>
         <PackagePlus className="h-6 w-6" />
-        {tInvoicing('payment.add_button_label')}
+        {tInvoicing('expense-payment.add_button_label')}
       </Button>
       <DataTableViewOptions table={table} />
     </div>

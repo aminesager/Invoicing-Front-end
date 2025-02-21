@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 import { useTranslation } from 'react-i18next';
-import { usePaymentActions } from './ActionsContext';
+import { useExpensePaymentActions } from './ActionsContext';
 
 interface DataTableColumnHeaderProps<TData, TValue> extends React.HTMLAttributes<HTMLDivElement> {
   column: Column<TData, TValue>;
@@ -25,7 +25,7 @@ export function DataTableColumnHeader<TData, TValue>({
   attribute,
   className
 }: DataTableColumnHeaderProps<TData, TValue>) {
-  const { order, sortKey, setSortDetails } = usePaymentActions();
+  const { order, sortKey, setSortDetails } = useExpensePaymentActions();
   const { t: tCommon } = useTranslation('common');
   if (!column.getCanSort()) {
     return <div className={cn(className)}>{title}</div>;

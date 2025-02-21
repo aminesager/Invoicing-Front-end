@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface InvoiceActionsContextProps {
+interface ExpenseInvoiceActionsContextProps {
   openDeleteDialog?: () => void;
   openDuplicateDialog?: () => void;
   openDownloadDialog?: () => void;
-  openInvoiceDialog?: () => void;
+  openExpenseInvoiceDialog?: () => void;
   searchTerm?: string;
   setSearchTerm?: (value: string) => void;
   page?: number;
@@ -19,6 +19,8 @@ interface InvoiceActionsContextProps {
   interlocutorId?: number;
 }
 
-export const InvoiceActionsContext = React.createContext<InvoiceActionsContextProps>({});
+export const ExpenseInvoiceActionsContext = React.createContext<ExpenseInvoiceActionsContextProps>(
+  {}
+);
 
-export const useInvoiceActions = () => React.useContext(InvoiceActionsContext);
+export const useExpenseInvoiceActions = () => React.useContext(ExpenseInvoiceActionsContext);

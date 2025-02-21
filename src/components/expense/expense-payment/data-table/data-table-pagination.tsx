@@ -14,14 +14,14 @@ import {
 } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
-import { usePaymentActions } from './ActionsContext';
+import { useExpensePaymentActions } from './ActionsContext';
 
 interface DataTablePaginationProps<TData> {
   table: Table<TData>;
 }
 
 export function DataTablePagination<TData>({ table }: DataTablePaginationProps<TData>) {
-  const { page, totalPageCount, setPage, size, setSize } = usePaymentActions();
+  const { page, totalPageCount, setPage, size, setSize } = useExpensePaymentActions();
   const { t: tCommon } = useTranslation('common');
 
   return (

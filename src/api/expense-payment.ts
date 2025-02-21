@@ -1,15 +1,16 @@
-import { PAYMENT_FILTER_ATTRIBUTES } from '@/constants/payment-filter.attributes';
+import { EXPENSE_PAYMENT_CONDITION_FILTER_ATTRIBUTES } from '@/constants/expense-payment-condition.filter-attributes';
 import {
-  CreatePaymentDto,
-  PagedPayment,
-  Payment,
-  PaymentUploadedFile,
+  CreateExpensePaymentDto,
+  PagedExpensePayment,
+  ExpensePayment,
+  ExpensePaymentUploadedFile,
   ToastValidation,
-  UpdatePaymentDto
+  UpdateExpensePaymentDto
 } from '@/types';
 import axios from './axios';
 import { upload } from './upload';
 import { api } from '.';
+import { EXPENSE_PAYMENT_FILTER_ATTRIBUTES } from '@/constants/expense-payment-filter.attributes';
 
 const findOne = async (
   id: number,
@@ -21,9 +22,11 @@ const findOne = async (
     'uploads',
     'uploads.upload'
   ]
-): Promise<Payment & { files: PaymentUploadedFile[] }> => {
-  const response = await axios.get<Payment>(`public/payment/${id}?join=${relations.join(',')}`);
-  return { ...response.data, files: await getPaymentUploads(response.data) };
+): Promise<ExpensePayment & { files: ExpensePaymentUploadedFile[] }> => {
+  const response = await axios.get<ExpensePayment>(
+    `public/expense-payment/${id}?join=${relations.join(',')}`
+  );
+  return { ...response.data, files: await getExpensePaymentUploads(response.data) };
 };
 
 const findPaginated = async (
@@ -35,9 +38,9 @@ const findPaginated = async (
   relations: string[] = [],
   firmId?: number,
   interlocutorId?: number
-): Promise<PagedPayment> => {
+): Promise<PagedExpensePayment> => {
   const generalFilter = search
-    ? Object.values(PAYMENT_FILTER_ATTRIBUTES)
+    ? Object.values(EXPENSE_PAYMENT_FILTER_ATTRIBUTES)
         .map((key) => `${key}||$cont||${search}`)
         .join('||$or||')
     : '';
@@ -45,9 +48,9 @@ const findPaginated = async (
   const interlocutorCondition = interlocutorId ? `interlocutorId||$cont||${interlocutorId}` : '';
   const filters = [generalFilter, firmCondition, interlocutorCondition].filter(Boolean).join(',');
 
-  const response = await axios.get<PagedPayment>(
+  const response = await axios.get<PagedExpensePayment>(
     new String().concat(
-      'public/payment/list?',
+      'public/expense-payment/list?',
       `sort=${sortKey},${order}&`,
       `filter=${filters}&`,
       `limit=${size}&page=${page}&`,
@@ -57,14 +60,17 @@ const findPaginated = async (
   return response.data;
 };
 
-const uploadPaymentFiles = async (files: File[]): Promise<number[]> => {
+const uploadExpensePaymentFiles = async (files: File[]): Promise<number[]> => {
   return files && files?.length > 0 ? await upload.uploadFiles(files) : [];
 };
 
-const create = async (payment: CreatePaymentDto, files: File[] = []): Promise<Payment> => {
-  const uploadIds = await uploadPaymentFiles(files);
-  const response = await axios.post<CreatePaymentDto>('public/payment', {
-    ...payment,
+const create = async (
+  expensePayment: CreateExpensePaymentDto,
+  files: File[] = []
+): Promise<ExpensePayment> => {
+  const uploadIds = await uploadExpensePaymentFiles(files);
+  const response = await axios.post<CreateExpensePaymentDto>('public/expense-payment', {
+    ...expensePayment,
     uploads: uploadIds.map((id) => {
       return { uploadId: id };
     })
@@ -72,11 +78,13 @@ const create = async (payment: CreatePaymentDto, files: File[] = []): Promise<Pa
   return response.data;
 };
 
-const getPaymentUploads = async (payment: Payment): Promise<PaymentUploadedFile[]> => {
-  if (!payment?.uploads) return [];
+const getExpensePaymentUploads = async (
+  expensePayment: ExpensePayment
+): Promise<ExpensePaymentUploadedFile[]> => {
+  if (!expensePayment?.uploads) return [];
 
   const uploads = await Promise.all(
-    payment.uploads.map(async (u) => {
+    expensePayment.uploads.map(async (u) => {
       if (u?.upload?.slug) {
         const blob = await api.upload.fetchBlobBySlug(u.upload.slug);
         const filename = u.upload.filename || '';
@@ -91,15 +99,18 @@ const getPaymentUploads = async (payment: Payment): Promise<PaymentUploadedFile[
     .sort(
       (a, b) =>
         new Date(a.upload.createdAt ?? 0).getTime() - new Date(b.upload.createdAt ?? 0).getTime()
-    ) as PaymentUploadedFile[];
+    ) as ExpensePaymentUploadedFile[];
 };
 
-const update = async (payment: UpdatePaymentDto, files: File[] = []): Promise<Payment> => {
-  const uploadIds = await uploadPaymentFiles(files);
-  const response = await axios.put<Payment>(`public/payment/${payment.id}`, {
-    ...payment,
+const update = async (
+  expensePayment: UpdateExpensePaymentDto,
+  files: File[] = []
+): Promise<ExpensePayment> => {
+  const uploadIds = await uploadExpensePaymentFiles(files);
+  const response = await axios.put<ExpensePayment>(`public/expense-payment/${expensePayment.id}`, {
+    ...expensePayment,
     uploads: [
-      ...(payment.uploads || []),
+      ...(expensePayment.uploads || []),
       ...uploadIds.map((id) => {
         return { uploadId: id };
       })
@@ -108,21 +119,26 @@ const update = async (payment: UpdatePaymentDto, files: File[] = []): Promise<Pa
   return response.data;
 };
 
-const remove = async (id: number): Promise<Payment> => {
-  const response = await axios.delete<Payment>(`public/payment/${id}`);
+const remove = async (id: number): Promise<ExpensePayment> => {
+  const response = await axios.delete<ExpensePayment>(`public/expense-payment/${id}`);
   return response.data;
 };
 
-const validate = (payment: Partial<Payment>, used: number, paid: number): ToastValidation => {
-  if (!payment.date) return { message: 'La date doit être définie' };
-  if (!payment?.amount || payment?.amount <= 0)
+const validate = (
+  expensePayment: Partial<ExpensePayment>,
+  used: number,
+  paid: number
+): ToastValidation => {
+  if (!expensePayment.date) return { message: 'La date doit être définie' };
+  if (!expensePayment?.amount || expensePayment?.amount <= 0)
     return { message: 'Le montant doit être supérieur à 0' };
-  if (payment?.fee == null || payment?.fee < 0)
+  if (expensePayment?.fee == null || expensePayment?.fee < 0)
     return { message: 'Le frais doit être supérieur ou égal à 0' };
-  if (payment?.fee > payment?.amount) return { message: 'Le frais doit être inférieur au montant' };
+  if (expensePayment?.fee > expensePayment?.amount)
+    return { message: 'Le frais doit être inférieur au montant' };
   if (paid !== used)
     return { message: 'Le montant total doit être égal à la somme des montants des factures' };
   return { message: '', position: 'bottom-right' };
 };
 
-export const payment = { findOne, findPaginated, create, update, remove, validate };
+export const expensePayment = { findOne, findPaginated, create, update, remove, validate };

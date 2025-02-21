@@ -39,13 +39,16 @@ export * from './quotation';
 
 import { expenseQuotation } from './expense-quotation';
 export * from './expense-quotation';
-/*
+
 import { expenseInvoice } from './expense-invoice';
 export * from './expense-invoice';
 
-import { expenseQuotation } from './expense-quotation';
-export * from './expense-quotation';
-*/
+import { expensePayment } from './expense-payment';
+export * from './expense-payment';
+
+import { expensePaymentCondition } from './expense-payment-condition';
+export * from './expense-payment-condition';
+
 import { role } from './role';
 export * from './role';
 import { tax } from './tax';
@@ -76,8 +79,12 @@ export const api = {
   firmInterlocutorEntry,
   interlocutor,
   invoice,
+  expenseInvoice,
   payment,
   paymentCondition,
+
+  expensePayment,
+  expensePaymentCondition,
   permission,
   quotation,
   expenseQuotation,

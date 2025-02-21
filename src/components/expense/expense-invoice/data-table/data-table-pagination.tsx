@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
-import { useInvoiceActions } from './ActionsContext';
+import { useExpenseInvoiceActions } from './ActionsContext';
 
 interface DataTablePaginationProps<TData> {
   table: Table<TData>;
@@ -27,7 +27,7 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
     setPage,
     size,
     setSize
-  } = useInvoiceActions();
+  } = useExpenseInvoiceActions();
   const { t: tCommon } = useTranslation('common');
   const page = contextPage || 0;
   const totalPageCount = contextTotalPageCount || 0;
