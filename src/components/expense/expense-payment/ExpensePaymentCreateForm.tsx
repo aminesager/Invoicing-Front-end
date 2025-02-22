@@ -42,7 +42,7 @@ export const ExpensePaymentCreateForm = ({ className, firmId }: ExpensePaymentFo
       !firmId
         ? [
             { title: tCommon('menu.selling'), href: '/selling' },
-            { title: tInvoicing('expensepayment.plural'), href: '/expense/expense-payments' },
+            { title: tInvoicing('expense-payment.plural'), href: '/expense/expense-payments' },
             { title: tInvoicing('expense-payment.new') }
           ]
         : []
@@ -59,16 +59,16 @@ export const ExpensePaymentCreateForm = ({ className, firmId }: ExpensePaymentFo
 
   const { firms, isFetchFirmsPending } = useFirmChoices([
     'currency',
-    'expense-invoices',
-    'expense-invoices.currency'
+    'expenseInvoices',
+    'expenseInvoices.currency'
   ]);
 
   const currency = React.useMemo(() => {
     return currencies.find((c) => c.id === expensePaymentManager.currencyId);
   }, [expensePaymentManager.currencyId, currencies]);
 
-  const { mutate: ExpensecreatePayment, isPending: isCreatePending } = useMutation({
-    mutationFn: (data: { expensePayment: ExpenseCreatePaymentDto; files: File[] }) =>
+  const { mutate: createExpensePayment, isPending: isCreatePending } = useMutation({
+    mutationFn: (data: { expensePayment: CreateExpensePaymentDto; files: File[] }) =>
       api.expensePayment.create(data.expensePayment, data.files),
     onSuccess: () => {
       toast.success('Paiement crée avec succès');
@@ -122,7 +122,7 @@ export const ExpensePaymentCreateForm = ({ className, firmId }: ExpensePaymentFo
     if (validation.message) {
       toast.error(validation.message);
     } else {
-      ExpensecreatePayment({
+      createExpensePayment({
         expensePayment,
         files: expensePaymentManager.uploadedFiles.filter((u) => !u.upload).map((u) => u.file)
       });

@@ -34,7 +34,7 @@ export const ExpensePaymentMain: React.FC<ExpensePaymentMainProps> = ({
   React.useEffect(() => {
     if (!firmId && !interlocutorId)
       setRoutes([
-        { title: tCommon('menu.selling'), href: '/selling' },
+        { title: tCommon('menu.selling'), href: '/expense' },
         { title: tCommon('submenu.expense-payments') }
       ]);
   }, [router.locale, firmId, interlocutorId]);
@@ -63,10 +63,10 @@ export const ExpensePaymentMain: React.FC<ExpensePaymentMainProps> = ({
     isPending: isFetchPending,
     error,
     data: expensePaymentsResp,
-    refetch: ExpenserefetchPayments
+    refetch: refetchExpensePayments
   } = useQuery({
     queryKey: [
-      'expensePayments',
+      'expense-payments',
       debouncedPage,
       debouncedSize,
       debouncedSortDetails.order,
@@ -108,12 +108,12 @@ export const ExpensePaymentMain: React.FC<ExpensePaymentMainProps> = ({
   };
 
   //Remove Invoice
-  const { mutate: ExpenseremovePayment, isPending: isDeletePending } = useMutation({
+  const { mutate: removeExpensePayment, isPending: isDeletePending } = useMutation({
     mutationFn: (id: number) => api.expensePayment.remove(id),
     onSuccess: () => {
       if (expensePayments?.length == 1 && page > 1) setPage(page - 1);
       toast.success(tInvoicing('expense-payment.action_remove_success'));
-      ExpenserefetchPayments();
+      refetchExpensePayments();
       setDeleteDialog(false);
     },
     onError: (error) => {
@@ -131,7 +131,7 @@ export const ExpensePaymentMain: React.FC<ExpensePaymentMainProps> = ({
         id={expensePaymentManager?.id}
         open={deleteDialog}
         deleteExpensePayment={() => {
-          expensePaymentManager?.id && ExpenseremovePayment(expensePaymentManager?.id);
+          expensePaymentManager?.id && removeExpensePayment(expensePaymentManager?.id);
         }}
         isDeletionPending={isDeletePending}
         onClose={() => setDeleteDialog(false)}

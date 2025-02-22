@@ -7,7 +7,8 @@ import {
   ExpenseInvoice,
   ExpenseInvoiceUploadedFile,
   EXPENSE_QUOTATION_STATUS,
-  UpdateExpenseInvoiceDto
+  UpdateExpenseInvoiceDto,
+  EXPENSE_INVOICE_STATUS
 } from '@/types';
 import { Spinner } from '@/components/common';
 import { Card, CardContent } from '@/components/ui/card';
@@ -93,7 +94,7 @@ export const ExpenseInvoiceUpdateForm = ({
 
   //recognize if the form can be edited
   const editMode = React.useMemo(() => {
-    const editModeStatuses = [INVOICE_STATUS.Validated, INVOICE_STATUS.Draft];
+    const editModeStatuses = [EXPENSE_INVOICE_STATUS.Validated, EXPENSE_INVOICE_STATUS.Draft];
     return expenseInvoice?.status && editModeStatuses.includes(expenseInvoice?.status);
   }, [expenseInvoice]);
 
@@ -265,7 +266,7 @@ export const ExpenseInvoiceUpdateForm = ({
   });
 
   //update handler
-  const onSubmit = (status: INVOICE_STATUS) => {
+  const onSubmit = (status: EXPENSE_INVOICE_STATUS) => {
     const articlesDto: ArticleExpenseInvoiceEntry[] = articleManager
       .getArticles()
       ?.map((article) => ({
@@ -399,9 +400,9 @@ export const ExpenseInvoiceUpdateForm = ({
                   expensePayments={expenseInvoice?.expensePayments || []}
                   taxWithholdings={taxWithholdings}
                   handleSubmit={() => onSubmit(expenseInvoiceManager.status)}
-                  handleSubmitDraft={() => onSubmit(INVOICE_STATUS.Draft)}
-                  handleSubmitValidated={() => onSubmit(INVOICE_STATUS.Validated)}
-                  handleSubmitSent={() => onSubmit(INVOICE_STATUS.Sent)}
+                  handleSubmitDraft={() => onSubmit(EXPENSE_INVOICE_STATUS.Draft)}
+                  handleSubmitValidated={() => onSubmit(EXPENSE_INVOICE_STATUS.Validated)}
+                  handleSubmitSent={() => onSubmit(EXPENSE_INVOICE_STATUS.Sent)}
                   loading={debounceFetching}
                   reset={globalReset}
                   edit={editMode}

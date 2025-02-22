@@ -13,7 +13,6 @@ type ExpensePaymentManager = {
   date?: Date | undefined;
   amount?: number;
   fee?: number;
-  EXPENSE_PAYMENT;
   convertionRate: number;
   currency?: Currency;
   currencyId?: number;

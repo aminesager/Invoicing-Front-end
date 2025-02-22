@@ -16,9 +16,9 @@ const findOne = async (
   id: number,
   relations: string[] = [
     'currency',
-    'invoices',
-    'invoices.invoice',
-    'invoices.invoice.currency',
+    'expenseInvoices',
+    'expenseInvoices.invoice',
+    'expenseInvoices.invoice.currency',
     'uploads',
     'uploads.upload'
   ]

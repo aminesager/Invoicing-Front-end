@@ -48,7 +48,7 @@ export const ExpensePaymentUpdateForm = ({
     data: expensePaymentResp,
     refetch: refetchInvoice
   } = useQuery({
-    queryKey: ['expense-invoice', expensePaymentId],
+    queryKey: ['expenseInvoice', expensePaymentId],
     queryFn: () => api.expensePayment.findOne(parseInt(expensePaymentId))
   });
 
@@ -59,9 +59,9 @@ export const ExpensePaymentUpdateForm = ({
   React.useEffect(() => {
     if (expensePayment?.id)
       setRoutes([
-        { title: tCommon('menu.selling'), href: '/selling' },
+        { title: tCommon('menu.selling'), href: '/expense' },
         { title: tInvoicing('expense-payment.plural'), href: '/expense/expense-payments' },
-        { title: tInvoicing('payment.singular') + ' N° ' + expensePayment?.id }
+        { title: tInvoicing('expense-payment.singular') + ' N° ' + expensePayment?.id }
       ]);
   }, [router.locale, expensePayment?.id]);
 
@@ -75,19 +75,19 @@ export const ExpensePaymentUpdateForm = ({
 
   const { firms, isFetchFirmsPending } = useFirmChoices([
     'currency',
-    'expense-invoices',
-    'expense-invoices.currency'
+    'expenseInvoices',
+    'expenseInvoices.currency'
   ]);
   const fetching =
     isFetchPending || isFetchFirmsPending || isFetchCurrenciesPending || isFetchCabinetPending;
 
   const setExpensePaymentData = (data: Partial<ExpensePayment>) => {
-    //expenseInvoice infos
+    //invoice infos
     expensePaymentManager.setExpensePayment({
       ...data,
       firm: firms.find((firm) => firm.id === data.firmId)
     });
-    //expenseInvoice article infos
+    //invoice article infos
     data?.expenseInvoices &&
       data.convertionRate &&
       data.currency &&
