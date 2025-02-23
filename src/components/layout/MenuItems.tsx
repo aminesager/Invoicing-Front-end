@@ -83,19 +83,19 @@ const baseMenuItems = [
       {
         code: 'quotations',
         title: 'Quotations',
-        href: '/buying/quotation',
+        href: '/expense/expense-quotations',
         icon: <File className="h-5 w-5" />
       },
       {
         code: 'invoices',
         title: 'Invoices',
-        href: '/buying/invoice',
+        href: '/expense/expense-invoices',
         icon: <FileText className="h-5 w-5" />
       },
       {
         code: 'payments',
         title: 'Payments',
-        href: '/buying/payments',
+        href: '/expense/expense-payments',
         icon: <Wallet className="h-5 w-5" />
       },
       {

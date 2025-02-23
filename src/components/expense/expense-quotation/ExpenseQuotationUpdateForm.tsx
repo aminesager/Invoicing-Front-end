@@ -45,7 +45,7 @@ interface ExpenseQuotationFormProps {
   expenseQuotationId: string;
 }
 
-export const QuotationUpdateForm = ({
+export const ExpenseQuotationUpdateForm = ({
   className,
   expenseQuotationId
 }: ExpenseQuotationFormProps) => {
