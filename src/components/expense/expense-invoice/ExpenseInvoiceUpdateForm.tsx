@@ -3,7 +3,6 @@ import { cn } from '@/lib/utils';
 import { api } from '@/api';
 import {
   ArticleExpenseInvoiceEntry,
-  INVOICE_STATUS,
   ExpenseInvoice,
   ExpenseInvoiceUploadedFile,
   EXPENSE_QUOTATION_STATUS,
@@ -86,7 +85,7 @@ export const ExpenseInvoiceUpdateForm = ({
   React.useEffect(() => {
     if (expenseInvoice?.sequential)
       setRoutes([
-        { title: tCommon('menu.selling'), href: '/expense' },
+        { title: tCommon('menu.expense'), href: '/expense' },
         { title: tInvoicing('expense-invoice.plural'), href: '/expense/expense-invoices' },
         { title: tInvoicing('expense-invoice.singular') + ' N° ' + expenseInvoice?.sequential }
       ]);
@@ -114,7 +113,7 @@ export const ExpenseInvoiceUpdateForm = ({
   const { bankAccounts, isFetchBankAccountsPending } = useBankAccount();
   const { taxWithholdings, isFetchTaxWithholdingsPending } = useTaxWithholding();
   const { defaultCondition, isFetchDefaultConditionPending } = useDefaultCondition(
-    ACTIVITY_TYPE.SELLING,
+    ACTIVITY_TYPE.EXPENSE,
     DOCUMENT_TYPE.INVOICE
   );
   const { dateRange, isFetchExpenseInvoiceRangePending } = useExpenseInvoiceRangeDates(

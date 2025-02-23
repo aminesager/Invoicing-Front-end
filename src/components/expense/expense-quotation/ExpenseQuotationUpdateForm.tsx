@@ -222,7 +222,7 @@ export const ExpenseQuotationUpdateForm = ({
     onSuccess: (data) => {
       if (data.status == EXPENSE_QUOTATION_STATUS.Invoiced) {
         toast.success('Devis facturé avec succès');
-        // router.push(`/selling/invoice/${data.invoiceId}`);
+        // router.push(`/expense/invoice/${data.invoiceId}`);
       } else {
         toast.success('Devis modifié avec succès');
       }

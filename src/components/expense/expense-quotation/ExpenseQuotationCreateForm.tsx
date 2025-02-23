@@ -62,7 +62,7 @@ export const ExpenseQuotationCreateForm = ({ className, firmId }: ExpenseQuotati
     setRoutes(
       !firmId
         ? [
-            { title: tCommon('menu.selling'), href: '/selling' },
+            { title: tCommon('menu.expense'), href: '/expense' },
             { title: tInvoicing('expenseQuotation.plural'), href: '/expense/expense-quotations' },
             { title: tInvoicing('expense-quotation.new') }
           ]
@@ -92,7 +92,7 @@ export const ExpenseQuotationCreateForm = ({ className, firmId }: ExpenseQuotati
   const { currencies, isFetchCurrenciesPending } = useCurrency();
   const { bankAccounts, isFetchBankAccountsPending } = useBankAccount();
   const { defaultCondition, isFetchDefaultConditionPending } = useDefaultCondition(
-    ACTIVITY_TYPE.SELLING,
+    ACTIVITY_TYPE.EXPENSE,
     DOCUMENT_TYPE.EXPENSE_QUOTATION
   );
 

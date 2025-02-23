@@ -48,7 +48,7 @@ export const ExpenseInvoicePaymentList = ({
                     </Label>
                     <Link
                       className="underline cursor-pointer"
-                      href={`/selling/expense-payment/${entry?.expensePayment?.id}`}>
+                      href={`/expense/expense-payment/${entry?.expensePayment?.id}`}>
                       PAY-{entry.id} : {convertedAmount.toFixed(currency?.digitAfterComma)}
                       {currency?.symbol}
                     </Link>

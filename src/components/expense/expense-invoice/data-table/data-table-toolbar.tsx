@@ -43,7 +43,7 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
         className="h-8 px-2 lg:px-3"
         variant="ghost"
         onClick={() => {
-          router.push('/selling/new-expense-invoice');
+          router.push('/expense/new-expense-invoice');
         }}>
         <PackagePlus className="h-6 w-6" />
         {tInvoicing('expense-invoice.add_button_label')}

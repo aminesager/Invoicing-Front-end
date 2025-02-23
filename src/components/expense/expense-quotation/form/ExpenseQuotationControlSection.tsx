@@ -130,7 +130,7 @@ export const ExpenseQuotationControlSection = ({
       api.expenseQuotation.duplicate(duplicateExpenseQuotationDto),
     onSuccess: async (data) => {
       toast.success(tInvoicing('expense-quotation.action_duplicate_success'));
-      await router.push('/selling/expense-quotation/' + data.id);
+      await router.push('/expense/expense-quotation/' + data.id);
       setDuplicateDialog(false);
     },
     onError: (error) => {
@@ -148,7 +148,7 @@ export const ExpenseQuotationControlSection = ({
     mutationFn: (id: number) => api.expenseQuotation.remove(id),
     onSuccess: () => {
       toast.success(tInvoicing('expense-quotation.action_remove_success'));
-      router.push('/selling/expense-quotations');
+      router.push('/expense/expense-quotations');
     },
     onError: (error) => {
       toast.error(

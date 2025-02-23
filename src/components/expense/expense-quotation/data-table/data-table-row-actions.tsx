@@ -46,7 +46,7 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
         <DropdownMenuSeparator />
         {/* Inspect */}
         <DropdownMenuItem
-          onClick={() => router.push('/selling/expense-quotation/' + expenseQuotation.id)}>
+          onClick={() => router.push('/expense/expense-quotation/' + expenseQuotation.id)}>
           <Telescope className="h-5 w-5 mr-2" /> {tCommon('commands.inspect')}
         </DropdownMenuItem>
         {/* Print */}
@@ -69,7 +69,7 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
           expenseQuotation.status == EXPENSE_QUOTATION_STATUS.Validated ||
           expenseQuotation.status == EXPENSE_QUOTATION_STATUS.Sent) && (
           <DropdownMenuItem
-            onClick={() => router.push('/selling/quotation/' + expenseQuotation.id)}>
+            onClick={() => router.push('/expense/expense-quotation/' + expenseQuotation.id)}>
             <Settings2 className="h-5 w-5 mr-2" /> {tCommon('commands.modify')}
           </DropdownMenuItem>
         )}

@@ -41,7 +41,7 @@ export const ExpensePaymentCreateForm = ({ className, firmId }: ExpensePaymentFo
     setRoutes(
       !firmId
         ? [
-            { title: tCommon('menu.selling'), href: '/selling' },
+            { title: tCommon('menu.expense'), href: '/expense' },
             { title: tInvoicing('expense-payment.plural'), href: '/expense/expense-payments' },
             { title: tInvoicing('expense-payment.new') }
           ]
