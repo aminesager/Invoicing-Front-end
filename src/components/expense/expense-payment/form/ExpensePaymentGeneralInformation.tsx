@@ -42,7 +42,7 @@ export const ExpensePaymentGeneralInformation = ({
       <div className="flex flex-row gap-2">
         {/* Date */}
         <div className="flex flex-col gap-2 w-1/2">
-          <Label>{tInvoicing('expense-invoice.attributes.date')} (*)</Label>
+          <Label>{tInvoicing('invoice.attributes.date')} (*)</Label>
           <CalendarDatePicker
             label={tCommon('pick_date')}
             date={
@@ -105,7 +105,7 @@ export const ExpensePaymentGeneralInformation = ({
       <div className="flex flex-row gap-2">
         {/* Currency */}
         <div className="flex flex-col gap-2 w-1/3">
-          <Label>{tInvoicing('expense-payment.attributes.currency')}</Label>
+          <Label>{tInvoicing('payment.attributes.currency')}</Label>
           <SelectShimmer isPending={loading}>
             <Select
               key={expensePaymentManager.currencyId || 'currency'}
@@ -150,7 +150,7 @@ export const ExpensePaymentGeneralInformation = ({
         </div>
         {/* Mode */}
         <div className="flex flex-col gap-2 w-1/3">
-          <Label>{tInvoicing('expense-payment.attributes.mode')} (*)</Label>
+          <Label>{tInvoicing('payment.attributes.mode')} (*)</Label>
           <SelectShimmer isPending={loading || false}>
             <Select
               onValueChange={(e) => {
@@ -158,7 +158,7 @@ export const ExpensePaymentGeneralInformation = ({
               }}
               value={expensePaymentManager?.mode || ''}>
               <SelectTrigger>
-                <SelectValue placeholder={tInvoicing('expense-payment.attributes.mode')} />
+                <SelectValue placeholder={tInvoicing('payment.attributes.mode')} />
               </SelectTrigger>
               <SelectContent>
                 {Object.values(EXPENSE_PAYMENT_MODE).map((title) => (
@@ -174,7 +174,7 @@ export const ExpensePaymentGeneralInformation = ({
       <div className="flex flex-row gap-2 ">
         {/* Amount */}
         <div className="flex flex-col gap-2 w-1/3">
-          <Label>{tInvoicing('expense-payment.attributes.amount')}</Label>
+          <Label>{tInvoicing('payment.attributes.amount')}</Label>
           <Input
             type="number"
             placeholder="0"
@@ -186,7 +186,7 @@ export const ExpensePaymentGeneralInformation = ({
         </div>
         {/* Fee */}
         <div className="flex flex-col gap-2 w-1/3">
-          <Label>{tInvoicing('expense-payment.attributes.fee')}</Label>
+          <Label>{tInvoicing('payment.attributes.fee')}</Label>
           <Input
             type="number"
             placeholder="0"

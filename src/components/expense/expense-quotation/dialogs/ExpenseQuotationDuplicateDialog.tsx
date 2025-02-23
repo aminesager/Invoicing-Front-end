@@ -58,7 +58,7 @@ export const ExpenseQuotationDuplicateDialog: React.FC<ExpenseQuotationDuplicate
   const content = (
     <div className="flex gap-2 items-center">
       <Checkbox checked={includeFiles} onCheckedChange={() => setIncludeFiles(!includeFiles)} />{' '}
-      <Label>{tInvoicing('expense-quotation.file_duplication')}</Label>
+      <Label>{tInvoicing('quotation.file_duplication')}</Label>
     </div>
   );
 

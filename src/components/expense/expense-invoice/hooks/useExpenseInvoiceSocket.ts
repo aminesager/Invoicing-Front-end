@@ -9,7 +9,7 @@ const useExpenseInvoiceSocket = () => {
   const {
     configs: [sequence],
     isConfigPending: isExpenseInvoiceSequencePending
-  } = useConfig(['expense-invoice_sequence']);
+  } = useConfig(['invoice_sequence']);
 
   const [currentSequence, setCurrentSequence] = React.useState<Sequential | null>(null);
   const hasJoinedRef = React.useRef(false);
@@ -39,7 +39,7 @@ const useExpenseInvoiceSocket = () => {
       socket.on('connect', handleConnect);
     }
 
-    socket.on('expense-invoice-sequence-updated', (data) => {
+    socket.on('invoice-sequence-updated', (data) => {
       setCurrentSequence((prevSequence) =>
         prevSequence ? { ...prevSequence, next: data.value } : { next: data.value }
       );
@@ -64,7 +64,7 @@ const useExpenseInvoiceSocket = () => {
       }
 
       socket.off('connect', handleConnect);
-      socket.off('expense-invoice-sequence-updated');
+      socket.off('invoice-sequence-updated');
       socket.off('connect_error');
       socket.off('disconnect');
     };

@@ -122,13 +122,13 @@ export const ExpenseQuotationEmbeddedMain: React.FC<ExpenseQuotationEmbeddedMain
     mutationFn: (id: number) => api.expenseQuotation.remove(id),
     onSuccess: () => {
       if (expenseQuotations?.length == 1 && page > 1) setPage(page - 1);
-      toast.success(tInvoicing('expense-quotation.action_remove_success'));
+      toast.success(tInvoicing('quotation.action_remove_success'));
       refetchExpenseQuotations();
       setDeleteDialog(false);
     },
     onError: (error) => {
       toast.error(
-        getErrorMessage('invoicing', error, tInvoicing('expense-quotation.action_remove_failure'))
+        getErrorMessage('invoicing', error, tInvoicing('quotation.action_remove_failure'))
       );
     }
   });
@@ -138,17 +138,13 @@ export const ExpenseQuotationEmbeddedMain: React.FC<ExpenseQuotationEmbeddedMain
     mutationFn: (duplicateExpenseQuotationDto: DuplicateExpenseQuotationDto) =>
       api.expenseQuotation.duplicate(duplicateExpenseQuotationDto),
     onSuccess: async (data) => {
-      toast.success(tInvoicing('expense-quotation.action_duplicate_success'));
+      toast.success(tInvoicing('quotation.action_duplicate_success'));
       await router.push('/expense/expense-quotation/' + data.id);
       setDuplicateDialog(false);
     },
     onError: (error) => {
       toast.error(
-        getErrorMessage(
-          'invoicing',
-          error,
-          tInvoicing('expense-quotation.action_duplicate_failure')
-        )
+        getErrorMessage('invoicing', error, tInvoicing('quotation.action_duplicate_failure'))
       );
     }
   });
@@ -158,12 +154,12 @@ export const ExpenseQuotationEmbeddedMain: React.FC<ExpenseQuotationEmbeddedMain
     mutationFn: (data: { id: number; template: string }) =>
       api.expenseQuotation.download(data.id, data.template),
     onSuccess: () => {
-      toast.success(tInvoicing('expense-quotation.action_download_success'));
+      toast.success(tInvoicing('quotation.action_download_success'));
       setDownloadDialog(false);
     },
     onError: (error) => {
       toast.error(
-        getErrorMessage('invoicing', error, tInvoicing('expense-quotation.action_download_failure'))
+        getErrorMessage('invoicing', error, tInvoicing('quotation.action_download_failure'))
       );
     }
   });
@@ -198,8 +194,8 @@ export const ExpenseQuotationEmbeddedMain: React.FC<ExpenseQuotationEmbeddedMain
   if (error) return 'An error has occurred: ' + error.message;
   return (
     <ContentSection
-      title={tInvoicing('expense-quotation.singular')}
-      desc={tInvoicing('expense-quotation.card_description')}
+      title={tInvoicing('quotation.singular')}
+      desc={tInvoicing('quotation.card_description')}
       className="w-full"
       childrenClassName={cn('overflow-hidden', className)}>
       <>

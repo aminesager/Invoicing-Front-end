@@ -64,7 +64,7 @@ export const ExpenseQuotationInvoiceDialog: React.FC<ExpenseQuotationInvoiceDial
         checked={expenseInvoiceMark}
         onCheckedChange={() => setExpenseInvoiceMark(!expenseInvoiceMark)}
       />{' '}
-      <Label>{tInvoicing('expense-quotation.mark_invoiced')}</Label>
+      <Label>{tInvoicing('quotation.mark_invoiced')}</Label>
     </div>
   );
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { InvoiceCreateForm } from '@/components/selling/invoice/InvoiceCreateForm';
+import { ExpenseInvoiceCreateForm } from '@/components/expense/expense-invoice/ExpenseInvoiceCreateForm';
 import { useSearchParams } from 'next/navigation';
 
 export default function Page() {
@@ -7,7 +7,7 @@ export default function Page() {
   const firmId = params.get('firmId') || undefined;
   return (
     <div className="flex-1 flex flex-col overflow-hidden">
-      <InvoiceCreateForm firmId={firmId} />
+      <ExpenseInvoiceCreateForm firmId={firmId} />
     </div>
   );
 }

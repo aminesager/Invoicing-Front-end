@@ -23,7 +23,7 @@ export const getExpenseInvoiceColumns = (
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
-        title={translate('expense-quotation.attributes.firm')}
+        title={translate('quotation.attributes.firm')}
         attribute={EXPENSE_INVOICE_FILTER_ATTRIBUTES.FIRM}
       />
     ),
@@ -43,7 +43,7 @@ export const getExpenseInvoiceColumns = (
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
-        title={translate('expense-quotation.attributes.interlocutor')}
+        title={translate('quotation.attributes.interlocutor')}
         attribute={EXPENSE_INVOICE_FILTER_ATTRIBUTES.INTERLOCUTOR}
       />
     ),

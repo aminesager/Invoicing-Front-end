@@ -60,8 +60,8 @@ export const ExpensePaymentUpdateForm = ({
     if (expensePayment?.id)
       setRoutes([
         { title: tCommon('menu.expense'), href: '/expense' },
-        { title: tInvoicing('expense-payment.plural'), href: '/expense/expense-payments' },
-        { title: tInvoicing('expense-payment.singular') + ' N° ' + expensePayment?.id }
+        { title: tInvoicing('payment.plural'), href: '/expense/expense-payments' },
+        { title: tInvoicing('payment.singular') + ' N° ' + expensePayment?.id }
       ]);
   }, [router.locale, expensePayment?.id]);
 
@@ -201,7 +201,7 @@ export const ExpensePaymentUpdateForm = ({
                 </div>
                 <div className="flex gap-10 mt-5">
                   <Textarea
-                    placeholder={tInvoicing('expense-payment.attributes.notes')}
+                    placeholder={tInvoicing('payment.attributes.notes')}
                     className="resize-none w-2/3"
                     rows={7}
                   />

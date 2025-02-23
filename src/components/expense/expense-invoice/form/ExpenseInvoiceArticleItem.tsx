@@ -130,7 +130,7 @@ export const ExpenseInvoiceArticleItem: React.FC<ExpenseInvoiceArticleItemProps>
 
   const handleAddTax = () => {
     if ((article.articleExpenseInvoiceEntryTaxes?.length || 0) >= taxes.length) {
-      toast.warn(tInvoicing('expense-invoice.errors.surpassed_tax_limit'));
+      toast.warn(tInvoicing('invoice.errors.surpassed_tax_limit'));
       return;
     }
     onChange({
@@ -243,7 +243,7 @@ export const ExpenseInvoiceArticleItem: React.FC<ExpenseInvoiceArticleItemProps>
 
         {/* Discount */}
         <div className="my-auto py-5">
-          <Label className="mx-1">{tInvoicing('expense-invoice.attributes.discount')}</Label>
+          <Label className="mx-1">{tInvoicing('invoice.attributes.discount')}</Label>
           <div className="flex items-center gap-2">
             {edit ? (
               <Input

@@ -86,8 +86,8 @@ export const ExpenseInvoiceUpdateForm = ({
     if (expenseInvoice?.sequential)
       setRoutes([
         { title: tCommon('menu.expense'), href: '/expense' },
-        { title: tInvoicing('expense-invoice.plural'), href: '/expense/expense-invoices' },
-        { title: tInvoicing('expense-invoice.singular') + ' N° ' + expenseInvoice?.sequential }
+        { title: tInvoicing('invoice.plural'), href: '/expense/expense-invoices' },
+        { title: tInvoicing('invoice.singular') + ' N° ' + expenseInvoice?.sequential }
       ]);
   }, [router.locale, expenseInvoice?.sequential]);
 

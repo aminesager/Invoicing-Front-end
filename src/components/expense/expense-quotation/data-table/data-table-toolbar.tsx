@@ -47,7 +47,7 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
         }}>
         <PackagePlus className="h-6 w-6" />
 
-        {tInvoicing('expense-quotation.add_button_label')}
+        {tInvoicing('quotation.add_button_label')}
       </Button>
       <DataTableViewOptions table={table} />
     </div>

@@ -73,7 +73,7 @@ export const ExpensePaymentInvoiceManagement: React.FC<ExpensePaymentInvoiceMana
   if (expenseInvoiceManager.expenseInvoices.length == 0)
     return (
       <div className="flex items-center justify-center gap-2 font-bold h-24 text-center ">
-        {tInvoicing('expense-payment.no_expenes-invoices')} <PackageOpen />
+        {tInvoicing('payment.no_expenes-invoices')} <PackageOpen />
       </div>
     );
   return (
@@ -83,7 +83,7 @@ export const ExpensePaymentInvoiceManagement: React.FC<ExpensePaymentInvoiceMana
           <div className="flex flex-row items-center">
             <div>
               <CardTitle className="text-2xl flex justify-between">
-                {tInvoicing('expense-invoice.plural')}
+                {tInvoicing('invoice.plural')}
               </CardTitle>
               <CardDescription>{tInvoicing('article.manager-statement')}</CardDescription>
             </div>

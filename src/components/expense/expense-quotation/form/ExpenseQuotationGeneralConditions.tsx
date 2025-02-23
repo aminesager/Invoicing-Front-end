@@ -33,7 +33,7 @@ export const ExpenseQuotationGeneralConditions = ({
         <div className="flex flex-col gap-4">
           <Textarea
             disabled={!edit}
-            placeholder={tInvoicing('expense-quotation.attributes.general_condition')}
+            placeholder={tInvoicing('quotation.attributes.general_condition')}
             className="resize-none"
             value={expenseQuotationManager.generalConditions}
             onChange={(e) => expenseQuotationManager.set('generalConditions', e.target.value)}
@@ -48,7 +48,7 @@ export const ExpenseQuotationGeneralConditions = ({
                   onClick={() => {
                     expenseQuotationManager.set('generalConditions', defaultCondition);
                   }}>
-                  {tInvoicing('expense-quotation.use_default_condition')}
+                  {tInvoicing('quotation.use_default_condition')}
                 </Button>
                 <Button
                   variant={'secondary'}

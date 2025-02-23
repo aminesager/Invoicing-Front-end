@@ -23,7 +23,7 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
       <div className="flex flex-1 items-center space-x-2">
         <Input
           placeholder={tCommon('table.filter_placeholder', {
-            entity: tInvoicing('expense-payment.plural')
+            entity: tInvoicing('payment.plural')
           })}
           value={searchTerm.toString()}
           onChange={(event) => {
@@ -46,7 +46,7 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
           router.push('/expense/new-expense-payment');
         }}>
         <PackagePlus className="h-6 w-6" />
-        {tInvoicing('expense-payment.add_button_label')}
+        {tInvoicing('payment.add_button_label')}
       </Button>
       <DataTableViewOptions table={table} />
     </div>

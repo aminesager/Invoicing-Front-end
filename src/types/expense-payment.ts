@@ -6,11 +6,11 @@ import { DatabaseEntity } from './response/DatabaseEntity';
 import { Upload } from './upload';
 
 export enum EXPENSE_PAYMENT_MODE {
-  Cash = 'expense-payment.payment_mode.cash',
-  CreditCard = 'expense-payment.payment_mode.credit_card',
-  Check = 'expense-payment.payment_mode.check',
-  BankTransfer = 'expense-payment.payment_mode.bank_transfer',
-  WireTransfer = 'expense-payment.payment_mode.wire_transfer'
+  Cash = 'payment.payment_mode.cash',
+  CreditCard = 'payment.payment_mode.credit_card',
+  Check = 'payment.payment_mode.check',
+  BankTransfer = 'payment.payment_mode.bank_transfer',
+  WireTransfer = 'payment.payment_mode.wire_transfer'
 }
 
 export interface ExpensePaymentUpload extends DatabaseEntity {

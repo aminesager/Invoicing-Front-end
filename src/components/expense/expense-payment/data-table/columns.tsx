@@ -21,7 +21,7 @@ export const getExpensePaymentColumns = (
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('expense-payment.attributes.number')}
+          title={translate('payment.attributes.number')}
           attribute={EXPENSE_PAYMENT_FILTER_ATTRIBUTES.ID}
         />
       ),
@@ -34,7 +34,7 @@ export const getExpensePaymentColumns = (
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('expense-payment.attributes.date')}
+          title={translate('payment.attributes.date')}
           attribute={EXPENSE_PAYMENT_FILTER_ATTRIBUTES.DATE}
         />
       ),
@@ -49,7 +49,7 @@ export const getExpensePaymentColumns = (
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('expense-payment.attributes.mode')}
+          title={translate('payment.attributes.mode')}
           attribute={EXPENSE_PAYMENT_FILTER_ATTRIBUTES.MODE}
         />
       ),
@@ -66,7 +66,7 @@ export const getExpensePaymentColumns = (
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('expense-payment.attributes.amount')}
+          title={translate('payment.attributes.amount')}
           attribute={EXPENSE_PAYMENT_FILTER_ATTRIBUTES.AMOUNT}
         />
       ),
@@ -84,7 +84,7 @@ export const getExpensePaymentColumns = (
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('expense-payment.attributes.fee')}
+          title={translate('payment.attributes.fee')}
           attribute={EXPENSE_PAYMENT_FILTER_ATTRIBUTES.FEE}
         />
       ),
@@ -102,7 +102,7 @@ export const getExpensePaymentColumns = (
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('expense-payment.attributes.currency')}
+          title={translate('payment.attributes.currency')}
           attribute={EXPENSE_PAYMENT_FILTER_ATTRIBUTES.CURRENCY}
         />
       ),
@@ -114,9 +114,7 @@ export const getExpensePaymentColumns = (
               {row.original?.currency?.symbol})
             </span>
           ) : (
-            <span className="text-slate-400">
-              {translate('expense-payment.empty_cells.currency')}
-            </span>
+            <span className="text-slate-400">{translate('payment.empty_cells.currency')}</span>
           )}
         </div>
       ),
@@ -128,7 +126,7 @@ export const getExpensePaymentColumns = (
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('expense-invoice.attributes.created_at')}
+          title={translate('invoice.attributes.created_at')}
           attribute={EXPENSE_PAYMENT_FILTER_ATTRIBUTES.CREATEDAT}
         />
       ),

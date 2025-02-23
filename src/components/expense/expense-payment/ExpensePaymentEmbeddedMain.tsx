@@ -112,14 +112,12 @@ export const ExpensePaymentEmbeddedMain: React.FC<ExpensePaymentEmbeddedMainProp
     mutationFn: (id: number) => api.expensePayment.remove(id),
     onSuccess: () => {
       if (expensePayments?.length == 1 && page > 1) setPage(page - 1);
-      toast.success(tInvoicing('expense-payment.action_remove_success'));
+      toast.success(tInvoicing('payment.action_remove_success'));
       refetchExpensePayments();
       setDeleteDialog(false);
     },
     onError: (error) => {
-      toast.error(
-        getErrorMessage('invoicing', error, tInvoicing('expense-payment.action_remove_failure'))
-      );
+      toast.error(getErrorMessage('invoicing', error, tInvoicing('payment.action_remove_failure')));
     }
   });
 
@@ -128,8 +126,8 @@ export const ExpensePaymentEmbeddedMain: React.FC<ExpensePaymentEmbeddedMainProp
   if (error) return 'An error has occurred: ' + error.message;
   return (
     <ContentSection
-      title={tInvoicing('expense-payment.singular')}
-      desc={tInvoicing('expense-payment.card_description')}
+      title={tInvoicing('payment.singular')}
+      desc={tInvoicing('payment.card_description')}
       className="w-full"
       childrenClassName={cn('overflow-hidden', className)}>
       <>

@@ -48,7 +48,7 @@ export const ExpensePaymentExtraOptions = ({
         <AccordionTrigger>
           <div className="flex gap-2 justify-center items-center">
             <Files />
-            <Label>{tInvoicing('expense-payment.attributes.files')}</Label>
+            <Label>{tInvoicing('payment.attributes.files')}</Label>
           </div>
         </AccordionTrigger>
         <AccordionContent className="m-5">

@@ -33,7 +33,7 @@ export const ExpenseInvoiceGeneralConditions = ({
         <div className="flex flex-col gap-4">
           <Textarea
             disabled={!edit}
-            placeholder={tInvoicing('expense-invoice.attributes.general_condition')}
+            placeholder={tInvoicing('invoice.attributes.general_condition')}
             className="resize-none"
             value={expenseInvoiceManager.generalConditions}
             onChange={(e) => expenseInvoiceManager.set('generalConditions', e.target.value)}
@@ -48,7 +48,7 @@ export const ExpenseInvoiceGeneralConditions = ({
                   onClick={() => {
                     expenseInvoiceManager.set('generalConditions', defaultCondition);
                   }}>
-                  {tInvoicing('expense-invoice.use_default_condition')}
+                  {tInvoicing('invoice.use_default_condition')}
                 </Button>
                 <Button
                   variant={'secondary'}

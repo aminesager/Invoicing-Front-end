@@ -49,7 +49,7 @@ export const ExpenseInvoiceExtraOptions = ({
         <AccordionTrigger>
           <div className="flex gap-2 justify-center items-center">
             <Files />
-            <Label>{tInvoicing('expense-invoice.attributes.files')}</Label>
+            <Label>{tInvoicing('invoice.attributes.files')}</Label>
           </div>
         </AccordionTrigger>
         <AccordionContent className="m-5">
@@ -73,12 +73,12 @@ export const ExpenseInvoiceExtraOptions = ({
         <AccordionTrigger>
           <div className="flex gap-2 justify-center items-center">
             <NotebookTabs />
-            <Label>{tInvoicing('expense-invoice.attributes.notes')}</Label>
+            <Label>{tInvoicing('invoice.attributes.notes')}</Label>
           </div>
         </AccordionTrigger>
         <AccordionContent className="m-5">
           <Textarea
-            placeholder={tInvoicing('expense-invoice.attributes.notes')}
+            placeholder={tInvoicing('invoice.attributes.notes')}
             className="resize-none"
             value={expenseInvoiceManager.notes}
             onChange={(e) => expenseInvoiceManager.set('notes', e.target.value)}

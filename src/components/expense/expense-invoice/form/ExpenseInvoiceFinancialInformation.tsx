@@ -73,7 +73,7 @@ export const ExpenseInvoiceFinancialInformation = ({
       {/* Subtotal */}
       <div className="flex flex-col w-full border-b">
         <div className="flex my-2">
-          <Label className="mr-auto">{tInvoicing('expense-invoice.attributes.sub_total')}</Label>
+          <Label className="mr-auto">{tInvoicing('invoice.attributes.sub_total')}</Label>
           <Label className="ml-auto" isPending={loading || false}>
             {subTotal?.toFixed(digitAfterComma)} {currencySymbol}
           </Label>
@@ -139,7 +139,7 @@ export const ExpenseInvoiceFinancialInformation = ({
         {/* tax stamp */}
         {!controlManager.isTaxStampHidden && (
           <div className="flex items-center my-2">
-            <Label className="w-1/3">{tInvoicing('expense-invoice.attributes.tax_stamp')}</Label>
+            <Label className="w-1/3">{tInvoicing('invoice.attributes.tax_stamp')}</Label>
             {edit ? (
               <SelectShimmer isPending={loading || false} className="-mt-0.5 ">
                 <Select
@@ -176,7 +176,7 @@ export const ExpenseInvoiceFinancialInformation = ({
       </div>
       <div className="flex flex-col w-full mt-2">
         <div className="flex my-2">
-          <Label className="mr-auto">{tInvoicing('expense-invoice.attributes.total')}</Label>
+          <Label className="mr-auto">{tInvoicing('invoice.attributes.total')}</Label>
           <Label className="ml-auto" isPending={loading || false}>
             {invoiceManager.total?.toFixed(digitAfterComma)} {currencySymbol}
           </Label>
@@ -185,9 +185,7 @@ export const ExpenseInvoiceFinancialInformation = ({
       {!controlManager.isTaxWithholdingHidden && (
         <div className="flex flex-col w-full">
           <div className="flex my-2">
-            <Label className="mr-auto">
-              {tInvoicing('expense-invoice.attributes.withholding')}
-            </Label>
+            <Label className="mr-auto">{tInvoicing('invoice.attributes.withholding')}</Label>
             <Label className="ml-auto" isPending={loading || false}>
               {taxWithholdingAmount?.toFixed(digitAfterComma)} {currencySymbol}
             </Label>
@@ -202,9 +200,7 @@ export const ExpenseInvoiceFinancialInformation = ({
         <div>
           <div className="flex flex-col w-full">
             <div className="flex my-2">
-              <Label className="mr-auto">
-                {tInvoicing('expense-invoice.attributes.amount_paid')}
-              </Label>
+              <Label className="mr-auto">{tInvoicing('invoice.attributes.amount_paid')}</Label>
               <Label className="ml-auto" isPending={loading || false}>
                 {invoiceManager.amountPaid?.toFixed(digitAfterComma)} {currencySymbol}
               </Label>
@@ -212,9 +208,7 @@ export const ExpenseInvoiceFinancialInformation = ({
           </div>
           <div className="flex flex-col w-full">
             <div className="flex my-2">
-              <Label className="mr-auto">
-                {tInvoicing('expense-invoice.attributes.remaining_amount')}
-              </Label>
+              <Label className="mr-auto">{tInvoicing('invoice.attributes.remaining_amount')}</Label>
               <Label className="ml-auto" isPending={loading || false}>
                 {remaining_amount?.toFixed(digitAfterComma)} {currencySymbol}
               </Label>

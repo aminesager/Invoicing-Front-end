@@ -49,7 +49,7 @@ export const ExpenseInvoiceGeneralInformation = ({
     <div className={cn(className)}>
       <div className="flex gap-4 pb-5 border-b">
         <div className="w-full">
-          <Label>{tInvoicing('expense-invoice.attributes.date')} (*)</Label>
+          <Label>{tInvoicing('invoice.attributes.date')} (*)</Label>
           {edit ? (
             <DatePicker
               className="w-full mt-2"
@@ -64,7 +64,7 @@ export const ExpenseInvoiceGeneralInformation = ({
           )}
         </div>
         <div className="w-full">
-          <Label>{tInvoicing('expense-invoice.attributes.due_date')} (*)</Label>
+          <Label>{tInvoicing('invoice.attributes.due_date')} (*)</Label>
           {edit ? (
             <DatePicker
               className="w-full mt-2"
@@ -82,7 +82,7 @@ export const ExpenseInvoiceGeneralInformation = ({
 
       <div className="flex gap-4 pb-5 border-b mt-5">
         <div className="w-4/6">
-          <Label>{tInvoicing('expense-invoice.attributes.object')} (*)</Label>
+          <Label>{tInvoicing('invoice.attributes.object')} (*)</Label>
           {edit ? (
             <Input
               className="mt-1"
@@ -98,7 +98,7 @@ export const ExpenseInvoiceGeneralInformation = ({
           )}
         </div>
         <div className="w-2/6">
-          <Label>{tInvoicing('expense-invoice.singular')} N°</Label>
+          <Label>{tInvoicing('invoice.singular')} N°</Label>
           <SequenceInput
             prefix={expenseInvoiceManager.sequentialNumber?.prefix}
             dateFormat={expenseInvoiceManager.sequentialNumber?.dynamicSequence}
@@ -111,7 +111,7 @@ export const ExpenseInvoiceGeneralInformation = ({
         <div className="flex gap-4 pb-5 border-b mt-5">
           <div className="flex flex-col gap-4 w-1/2">
             <div>
-              <Label>{tInvoicing('expense-invoice.attributes.firm')} (*)</Label>
+              <Label>{tInvoicing('invoice.attributes.firm')} (*)</Label>
               {edit ? (
                 <SelectShimmer isPending={loading}>
                   <Select
@@ -122,7 +122,7 @@ export const ExpenseInvoiceGeneralInformation = ({
                     }}
                     value={expenseInvoiceManager.firm?.id?.toString()}>
                     <SelectTrigger className="mt-1">
-                      <SelectValue placeholder={tInvoicing('expense-invoice.associate_firm')} />
+                      <SelectValue placeholder={tInvoicing('invoice.associate_firm')} />
                     </SelectTrigger>
                     <SelectContent>
                       {firms?.map((firm: Partial<Firm>) => (
@@ -151,7 +151,7 @@ export const ExpenseInvoiceGeneralInformation = ({
             )}
           </div>
           <div className="w-1/2">
-            <Label>{tInvoicing('expense-invoice.attributes.interlocutor')} (*)</Label>
+            <Label>{tInvoicing('invoice.attributes.interlocutor')} (*)</Label>
             {edit ? (
               <SelectShimmer isPending={loading}>
                 <Select
@@ -161,9 +161,7 @@ export const ExpenseInvoiceGeneralInformation = ({
                   }}
                   value={expenseInvoiceManager.interlocutor?.id?.toString()}>
                   <SelectTrigger className="mt-1">
-                    <SelectValue
-                      placeholder={tInvoicing('expense-invoice.associate_interlocutor')}
-                    />
+                    <SelectValue placeholder={tInvoicing('invoice.associate_interlocutor')} />
                   </SelectTrigger>
                   <SelectContent>
                     {expenseInvoiceManager.firm?.interlocutorsToFirm?.map((entry: any) => (
@@ -204,7 +202,7 @@ export const ExpenseInvoiceGeneralInformation = ({
             {!isInvoicingAddressHidden && (
               <div className="w-1/2">
                 <AddressDetails
-                  addressType={tInvoicing('expense-invoice.attributes.invoicing_address')}
+                  addressType={tInvoicing('invoice.attributes.invoicing_address')}
                   address={expenseInvoiceManager.firm?.invoicingAddress}
                   loading={loading}
                 />
@@ -213,7 +211,7 @@ export const ExpenseInvoiceGeneralInformation = ({
             {!isDeliveryAddressHidden && (
               <div className="w-1/2">
                 <AddressDetails
-                  addressType={tInvoicing('expense-invoice.attributes.delivery_address')}
+                  addressType={tInvoicing('invoice.attributes.delivery_address')}
                   address={expenseInvoiceManager.firm?.deliveryAddress}
                   loading={loading}
                 />

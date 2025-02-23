@@ -112,14 +112,12 @@ export const ExpensePaymentMain: React.FC<ExpensePaymentMainProps> = ({
     mutationFn: (id: number) => api.expensePayment.remove(id),
     onSuccess: () => {
       if (expensePayments?.length == 1 && page > 1) setPage(page - 1);
-      toast.success(tInvoicing('expense-payment.action_remove_success'));
+      toast.success(tInvoicing('payment.action_remove_success'));
       refetchExpensePayments();
       setDeleteDialog(false);
     },
     onError: (error) => {
-      toast.error(
-        getErrorMessage('invoicing', error, tInvoicing('expense-payment.action_remove_failure'))
-      );
+      toast.error(getErrorMessage('invoicing', error, tInvoicing('payment.action_remove_failure')));
     }
   });
 
@@ -139,8 +137,8 @@ export const ExpensePaymentMain: React.FC<ExpensePaymentMainProps> = ({
       <ExpensePaymentActionsContext.Provider value={context}>
         <Card className={className}>
           <CardHeader>
-            <CardTitle>{tInvoicing('expense-payment.singular')}</CardTitle>
-            <CardDescription>{tInvoicing('expense-payment.card_description')}</CardDescription>
+            <CardTitle>{tInvoicing('payment.singular')}</CardTitle>
+            <CardDescription>{tInvoicing('payment.card_description')}</CardDescription>
           </CardHeader>
           <CardContent>
             <DataTable

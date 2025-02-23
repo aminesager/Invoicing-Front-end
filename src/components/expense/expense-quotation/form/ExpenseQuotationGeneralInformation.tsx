@@ -50,7 +50,7 @@ export const ExpenseQuotationGeneralInformation = ({
       <div className="flex gap-4 pb-5 border-b">
         {/* Date */}
         <div className="w-full">
-          <Label>{tInvoicing('expense-quotation.attributes.date')} (*)</Label>
+          <Label>{tInvoicing('quotation.attributes.date')} (*)</Label>
 
           {edit ? (
             <DatePicker
@@ -67,7 +67,7 @@ export const ExpenseQuotationGeneralInformation = ({
         </div>
         {/* Due Date */}
         <div className="w-full">
-          <Label>{tInvoicing('expense-quotation.attributes.due_date')} (*)</Label>
+          <Label>{tInvoicing('quotation.attributes.due_date')} (*)</Label>
           {edit ? (
             <DatePicker
               className="w-full mt-2"
@@ -85,7 +85,7 @@ export const ExpenseQuotationGeneralInformation = ({
       {/* Object */}
       <div className="flex gap-4 pb-5 border-b mt-5">
         <div className="w-4/6">
-          <Label>{tInvoicing('expense-quotation.attributes.object')} (*)</Label>
+          <Label>{tInvoicing('quotation.attributes.object')} (*)</Label>
           {edit ? (
             <Input
               className="mt-1"
@@ -102,7 +102,7 @@ export const ExpenseQuotationGeneralInformation = ({
         </div>
         {/* Sequential */}
         <div className="w-2/6">
-          <Label>{tInvoicing('expense-quotation.singular')} N°</Label>
+          <Label>{tInvoicing('quotation.singular')} N°</Label>
           <SequenceInput
             prefix={expenseQuotationManager.sequentialNumber?.prefix}
             dateFormat={expenseQuotationManager.sequentialNumber?.dynamicSequence}
@@ -116,7 +116,7 @@ export const ExpenseQuotationGeneralInformation = ({
           {/* Firm */}
           <div className="flex flex-col gap-4 w-1/2">
             <div>
-              <Label>{tInvoicing('expense-quotation.attributes.firm')} (*)</Label>
+              <Label>{tInvoicing('quotation.attributes.firm')} (*)</Label>
               {edit ? (
                 <SelectShimmer isPending={loading}>
                   <Select
@@ -127,7 +127,7 @@ export const ExpenseQuotationGeneralInformation = ({
                     }}
                     value={expenseQuotationManager.firm?.id?.toString()}>
                     <SelectTrigger className="mt-1">
-                      <SelectValue placeholder={tInvoicing('expense-quotation.associate_firm')} />
+                      <SelectValue placeholder={tInvoicing('quotation.associate_firm')} />
                     </SelectTrigger>
                     <SelectContent>
                       {firms?.map((firm: Partial<Firm>) => (
@@ -156,7 +156,7 @@ export const ExpenseQuotationGeneralInformation = ({
             )}
           </div>
           <div className="w-1/2">
-            <Label>{tInvoicing('expense-quotation.attributes.interlocutor')} (*)</Label>
+            <Label>{tInvoicing('quotation.attributes.interlocutor')} (*)</Label>
             {edit ? (
               <SelectShimmer isPending={loading}>
                 <Select
@@ -166,9 +166,7 @@ export const ExpenseQuotationGeneralInformation = ({
                   }}
                   value={expenseQuotationManager.interlocutor?.id?.toString()}>
                   <SelectTrigger className="mt-1">
-                    <SelectValue
-                      placeholder={tInvoicing('expense-quotation.associate_interlocutor')}
-                    />
+                    <SelectValue placeholder={tInvoicing('quotation.associate_interlocutor')} />
                   </SelectTrigger>
                   <SelectContent>
                     {expenseQuotationManager.firm?.interlocutorsToFirm?.map((entry: any) => (
@@ -209,7 +207,7 @@ export const ExpenseQuotationGeneralInformation = ({
             {!isInvoicingAddressHidden && (
               <div className="w-1/2">
                 <AddressDetails
-                  addressType={tInvoicing('expense-quotation.attributes.invoicing_address')}
+                  addressType={tInvoicing('quotation.attributes.invoicing_address')}
                   address={expenseQuotationManager.firm?.invoicingAddress}
                   loading={loading}
                 />
@@ -218,7 +216,7 @@ export const ExpenseQuotationGeneralInformation = ({
             {!isDeliveryAddressHidden && (
               <div className="w-1/2">
                 <AddressDetails
-                  addressType={tInvoicing('expense-quotation.attributes.delivery_address')}
+                  addressType={tInvoicing('quotation.attributes.delivery_address')}
                   address={expenseQuotationManager.firm?.deliveryAddress}
                   loading={loading}
                 />

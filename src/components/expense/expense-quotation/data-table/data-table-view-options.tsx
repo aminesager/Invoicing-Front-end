@@ -36,7 +36,7 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
           .getAllColumns()
           .filter((column) => typeof column.accessorFn !== 'undefined' && column.getCanHide())
           .map((column) => {
-            const translatedColumnTitle = tInvoicing(`expense-quotation.attributes.${column.id}`, {
+            const translatedColumnTitle = tInvoicing(`quotation.attributes.${column.id}`, {
               defaultValue: column.id
             });
 

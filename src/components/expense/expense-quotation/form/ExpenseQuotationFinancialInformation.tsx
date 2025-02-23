@@ -48,7 +48,7 @@ export const ExpenseQuotationFinancialInformation = ({
     <div className={cn(className)}>
       <div className="flex flex-col w-full border-b">
         <div className="flex my-2">
-          <Label className="mr-auto">{tInvoicing('expense-quotation.attributes.sub_total')}</Label>
+          <Label className="mr-auto">{tInvoicing('quotation.attributes.sub_total')}</Label>
           <Label className="ml-auto" isPending={loading || false}>
             {subTotal?.toFixed(digitAfterComma)} {currencySymbol}
           </Label>
@@ -67,7 +67,7 @@ export const ExpenseQuotationFinancialInformation = ({
         {/* discount */}
         {edit && (
           <div className="flex items-center my-2">
-            <Label className="mr-auto">{tInvoicing('expense-quotation.attributes.discount')}</Label>
+            <Label className="mr-auto">{tInvoicing('quotation.attributes.discount')}</Label>
             <div className="flex items-center gap-2">
               <Input
                 className="ml-auto w-2/5 text-right"
@@ -102,9 +102,7 @@ export const ExpenseQuotationFinancialInformation = ({
         {!edit && discount && (
           <div className="flex flex-col w-full">
             <div className="flex my-2">
-              <Label className="mr-auto">
-                {tInvoicing('expense-quotation.attributes.discount')}
-              </Label>
+              <Label className="mr-auto">{tInvoicing('quotation.attributes.discount')}</Label>
               <Label className="ml-auto" isPending={loading || false}>
                 {discount?.toFixed(digitAfterComma)}{' '}
                 <span>
@@ -117,7 +115,7 @@ export const ExpenseQuotationFinancialInformation = ({
       </div>
       <div className="flex flex-col w-full mt-2">
         <div className="flex my-2">
-          <Label className="mr-auto">{tInvoicing('expense-quotation.attributes.total')}</Label>
+          <Label className="mr-auto">{tInvoicing('quotation.attributes.total')}</Label>
           <Label className="ml-auto" isPending={loading || false}>
             {total?.toFixed(digitAfterComma)} {currencySymbol}
           </Label>

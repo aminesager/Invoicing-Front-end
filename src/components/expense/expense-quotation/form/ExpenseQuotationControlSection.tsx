@@ -111,12 +111,12 @@ export const ExpenseQuotationControlSection = ({
     mutationFn: (data: { id: number; template: string }) =>
       api.expenseQuotation.download(data.id, data.template),
     onSuccess: () => {
-      toast.success(tInvoicing('expense-quotation.action_download_success'));
+      toast.success(tInvoicing('quotation.action_download_success'));
       setDownloadDialog(false);
     },
     onError: (error) => {
       toast.error(
-        getErrorMessage('invoicing', error, tInvoicing('expense-quotation.action_download_failure'))
+        getErrorMessage('invoicing', error, tInvoicing('quotation.action_download_failure'))
       );
     }
   });
@@ -129,7 +129,7 @@ export const ExpenseQuotationControlSection = ({
     mutationFn: (duplicateExpenseQuotationDto: DuplicateExpenseQuotationDto) =>
       api.expenseQuotation.duplicate(duplicateExpenseQuotationDto),
     onSuccess: async (data) => {
-      toast.success(tInvoicing('expense-quotation.action_duplicate_success'));
+      toast.success(tInvoicing('quotation.action_duplicate_success'));
       await router.push('/expense/expense-quotation/' + data.id);
       setDuplicateDialog(false);
     },
@@ -147,13 +147,11 @@ export const ExpenseQuotationControlSection = ({
   const { mutate: removeExpenseQuotation, isPending: isDeletePending } = useMutation({
     mutationFn: (id: number) => api.expenseQuotation.remove(id),
     onSuccess: () => {
-      toast.success(tInvoicing('expense-quotation.action_remove_success'));
+      toast.success(tInvoicing('quotation.action_remove_success'));
       router.push('/expense/expense-quotations');
     },
     onError: (error) => {
-      toast.error(
-        getErrorMessage('', error, tInvoicing('expense-quotation.action_remove_failure'))
-      );
+      toast.error(getErrorMessage('', error, tInvoicing('quotation.action_remove_failure')));
     }
   });
 
@@ -362,9 +360,7 @@ export const ExpenseQuotationControlSection = ({
           {/* quotation status */}
           {status && (
             <Label className="text-base my-2 text-center">
-              <span className="font-bold">
-                {tInvoicing('expense-quotation.attributes.status')} :
-              </span>
+              <span className="font-bold">{tInvoicing('quotation.attributes.status')} :</span>
               <span className="font-extrabold text-gray-500 ml-2 mr-1">{tInvoicing(status)}</span>
               {status === EXPENSE_QUOTATION_STATUS.Invoiced && expenseInvoices?.length != 0 && (
                 <span className="font-extrabold text-gray-500">({expenseInvoices?.length})</span>
@@ -495,7 +491,7 @@ export const ExpenseQuotationControlSection = ({
           </div>
         </div>
         <div className="w-full py-5">
-          <h1 className="font-bold">{tInvoicing('controls.include_on_expense-quotation')}</h1>
+          <h1 className="font-bold">{tInvoicing('controls.include_on_quotation')}</h1>
           <div className="flex w-full items-center mt-1">
             {/* bank details switch */}
             <Label className="w-full">{tInvoicing('controls.bank_details')}</Label>
@@ -530,9 +526,7 @@ export const ExpenseQuotationControlSection = ({
           </div>
           {/* invoicing address switch */}
           <div className="flex w-full items-center mt-1">
-            <Label className="w-full">
-              {tInvoicing('expense-quotation.attributes.invoicing_address')}
-            </Label>
+            <Label className="w-full">{tInvoicing('quotation.attributes.invoicing_address')}</Label>
             <div className="w-full m-1 text-right">
               <Switch
                 onClick={() =>
@@ -547,9 +541,7 @@ export const ExpenseQuotationControlSection = ({
           </div>
           {/* delivery address switch */}
           <div className="flex w-full items-center mt-1">
-            <Label className="w-full">
-              {tInvoicing('expense-quotation.attributes.delivery_address')}
-            </Label>
+            <Label className="w-full">{tInvoicing('quotation.attributes.delivery_address')}</Label>
             <div className="w-full m-1 text-right">
               <Switch
                 onClick={() =>
@@ -564,9 +556,7 @@ export const ExpenseQuotationControlSection = ({
           </div>
           {/* general condition switch */}
           <div className="flex w-full items-center mt-1">
-            <Label className="w-full">
-              {tInvoicing('expense-quotation.attributes.general_condition')}
-            </Label>
+            <Label className="w-full">{tInvoicing('quotation.attributes.general_condition')}</Label>
             <div className="w-full m-1 text-right">
               <Switch
                 onClick={() => {

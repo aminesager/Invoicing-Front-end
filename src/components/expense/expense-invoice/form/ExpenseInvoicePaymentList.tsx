@@ -44,7 +44,7 @@ export const ExpenseInvoicePaymentList = ({
                 return (
                   <li key={entry.id} className="font-medium">
                     <Label>
-                      <span>{`${tInvoicing('expense-payment.singular')} ${(index + 1).toString().padStart(2, '0')} : `}</span>
+                      <span>{`${tInvoicing('payment.singular')} ${(index + 1).toString().padStart(2, '0')} : `}</span>
                     </Label>
                     <Link
                       className="underline cursor-pointer"

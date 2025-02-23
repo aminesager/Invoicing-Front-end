@@ -23,7 +23,7 @@ export const getExpenseQuotationColumns = (
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
-        title={translate('expense-quotation.attributes.firm')}
+        title={translate('quotation.attributes.firm')}
         attribute={EXPENSE_QUOTATION_FILTER_ATTRIBUTES.FIRM}
       />
     ),
@@ -43,7 +43,7 @@ export const getExpenseQuotationColumns = (
     header: ({ column }) => (
       <DataTableColumnHeader
         column={column}
-        title={translate('expense-quotation.attributes.interlocutor')}
+        title={translate('quotation.attributes.interlocutor')}
         attribute={EXPENSE_QUOTATION_FILTER_ATTRIBUTES.INTERLOCUTOR}
       />
     ),
@@ -64,7 +64,7 @@ export const getExpenseQuotationColumns = (
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('expense-quotation.attributes.number')}
+          title={translate('quotation.attributes.number')}
           attribute={EXPENSE_QUOTATION_FILTER_ATTRIBUTES.SEQUENTIAL}
         />
       ),
@@ -77,7 +77,7 @@ export const getExpenseQuotationColumns = (
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('expense-quotation.attributes.date')}
+          title={translate('quotation.attributes.date')}
           attribute={EXPENSE_QUOTATION_FILTER_ATTRIBUTES.DATE}
         />
       ),
@@ -86,7 +86,7 @@ export const getExpenseQuotationColumns = (
           {row.original.date ? (
             transformDate(row.original.date)
           ) : (
-            <span>{t('expense-quotation.attributes.no_date')}</span>
+            <span>{t('quotation.attributes.no_date')}</span>
           )}
         </div>
       ),
@@ -98,7 +98,7 @@ export const getExpenseQuotationColumns = (
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('expense-quotation.attributes.due_date')}
+          title={translate('quotation.attributes.due_date')}
           attribute={EXPENSE_QUOTATION_FILTER_ATTRIBUTES.DUEDATE}
         />
       ),
@@ -107,7 +107,7 @@ export const getExpenseQuotationColumns = (
           {row.original.dueDate ? (
             transformDate(row.original.dueDate)
           ) : (
-            <span>{t('expense-quotation.attributes.no_due_date')}</span>
+            <span>{t('quotation.attributes.no_due_date')}</span>
           )}
         </div>
       ),
@@ -119,7 +119,7 @@ export const getExpenseQuotationColumns = (
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('expense-quotation.attributes.status')}
+          title={translate('quotation.attributes.status')}
           attribute={EXPENSE_QUOTATION_FILTER_ATTRIBUTES.STATUS}
         />
       ),
@@ -136,7 +136,7 @@ export const getExpenseQuotationColumns = (
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('expense-quotation.attributes.total')}
+          title={translate('quotation.attributes.total')}
           attribute={EXPENSE_QUOTATION_FILTER_ATTRIBUTES.TOTAL}
         />
       ),
@@ -154,7 +154,7 @@ export const getExpenseQuotationColumns = (
       header: ({ column }) => (
         <DataTableColumnHeader
           column={column}
-          title={translate('expense-quotation.attributes.created_at')}
+          title={translate('quotation.attributes.created_at')}
           attribute={EXPENSE_QUOTATION_FILTER_ATTRIBUTES.CREATEDAT}
         />
       ),

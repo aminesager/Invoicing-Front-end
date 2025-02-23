@@ -107,7 +107,7 @@ export const ExpensePaymentInvoiceItem: React.FC<ExpensePaymentInvoiceItemProps>
     <div className={cn('flex flex-row items-center justify-between', className)}>
       {/* Invoice Sequential */}
       <div className="w-2/12 flex flex-col gap-2">
-        <Label className="font-thin">{tInvoicing('expense-invoice.singular')} N°</Label>
+        <Label className="font-thin">{tInvoicing('invoice.singular')} N°</Label>
         <Label
           className="underline cursor-pointer"
           onClick={() => {
@@ -118,7 +118,7 @@ export const ExpensePaymentInvoiceItem: React.FC<ExpensePaymentInvoiceItemProps>
       </div>
       {/* Invoice Due Date */}
       <div className="w-2/12 flex flex-col gap-2">
-        <Label className="font-thin">{tInvoicing('expense-invoice.attributes.due_date')}</Label>
+        <Label className="font-thin">{tInvoicing('invoice.attributes.due_date')}</Label>
         <Label>
           {expenseInvoiceEntry.expenseInvoice?.dueDate ? (
             transformDate(expenseInvoiceEntry.expenseInvoice.dueDate)
@@ -129,23 +129,19 @@ export const ExpensePaymentInvoiceItem: React.FC<ExpensePaymentInvoiceItemProps>
       </div>
       {/* Total */}
       <div className="w-1/12 flex flex-col gap-2">
-        <Label className="font-thin">{tInvoicing('expense-invoice.attributes.total')}</Label>
+        <Label className="font-thin">{tInvoicing('invoice.attributes.total')}</Label>
         <Label>
           {total.toUnit()} {expenseInvoiceCurrency?.symbol || '$'}
         </Label>
       </div>
       {/* Amount Paid */}
       <div className="w-2/12 flex flex-col gap-2">
-        <Label className="font-thin">
-          {tInvoicing('expense-invoice.attributes.expense-payment')}
-        </Label>
+        <Label className="font-thin">{tInvoicing('invoice.attributes.expense-payment')}</Label>
         <Input type="number" onChange={handleAmountPaidChange} value={expenseInvoiceEntry.amount} />
       </div>
       {/* Remaining Amount */}
       <div className="w-2/12 flex flex-col gap-2">
-        <Label className="font-thin">
-          {tInvoicing('expense-invoice.attributes.remaining_amount')}
-        </Label>
+        <Label className="font-thin">{tInvoicing('invoice.attributes.remaining_amount')}</Label>
         <Label>
           {currentRemainingAmount.toUnit().toFixed(digitAfterComma)}{' '}
           {expenseInvoiceCurrency?.symbol}

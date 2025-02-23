@@ -116,14 +116,12 @@ export const ExpenseInvoiceEmbeddedMain: React.FC<ExpenseInvoiceEmbeddedMainProp
     mutationFn: (id: number) => api.expenseInvoice.remove(id),
     onSuccess: () => {
       if (expenseInvoices?.length == 1 && page > 1) setPage(page - 1);
-      toast.success(tInvoicing('expense-invoice.action_remove_success'));
+      toast.success(tInvoicing('invoice.action_remove_success'));
       refetchExpenseInvoices();
       setDeleteDialog(false);
     },
     onError: (error) => {
-      toast.error(
-        getErrorMessage('invoicing', error, tInvoicing('expense-invoice.action_remove_failure'))
-      );
+      toast.error(getErrorMessage('invoicing', error, tInvoicing('invoice.action_remove_failure')));
     }
   });
 
@@ -132,13 +130,13 @@ export const ExpenseInvoiceEmbeddedMain: React.FC<ExpenseInvoiceEmbeddedMainProp
     mutationFn: (duplicateExpenseInvoiceDto: DuplicateExpenseInvoiceDto) =>
       api.expenseInvoice.duplicate(duplicateExpenseInvoiceDto),
     onSuccess: async (data) => {
-      toast.success(tInvoicing('expense-invoice.action_duplicate_success'));
+      toast.success(tInvoicing('invoice.action_duplicate_success'));
       await router.push('/expense/expense-invoice/' + data.id);
       setDuplicateDialog(false);
     },
     onError: (error) => {
       toast.error(
-        getErrorMessage('invoicing', error, tInvoicing('expense-invoice.action_duplicate_failure'))
+        getErrorMessage('invoicing', error, tInvoicing('invoice.action_duplicate_failure'))
       );
     }
   });
@@ -148,12 +146,12 @@ export const ExpenseInvoiceEmbeddedMain: React.FC<ExpenseInvoiceEmbeddedMainProp
     mutationFn: (data: { id: number; template: string }) =>
       api.expenseInvoice.download(data.id, data.template),
     onSuccess: () => {
-      toast.success(tInvoicing('expense-invoice.action_download_success'));
+      toast.success(tInvoicing('invoice.action_download_success'));
       setDownloadDialog(false);
     },
     onError: (error) => {
       toast.error(
-        getErrorMessage('invoicing', error, tInvoicing('expense-invoice.action_download_failure'))
+        getErrorMessage('invoicing', error, tInvoicing('invoice.action_download_failure'))
       );
     }
   });
@@ -163,8 +161,8 @@ export const ExpenseInvoiceEmbeddedMain: React.FC<ExpenseInvoiceEmbeddedMainProp
   if (error) return 'An error has occurred: ' + error.message;
   return (
     <ContentSection
-      title={tInvoicing('expense-invoice.singular')}
-      desc={tInvoicing('expense-invoice.card_description')}
+      title={tInvoicing('invoice.singular')}
+      desc={tInvoicing('invoice.card_description')}
       className="w-full"
       childrenClassName={cn('overflow-hidden', className)}>
       <>

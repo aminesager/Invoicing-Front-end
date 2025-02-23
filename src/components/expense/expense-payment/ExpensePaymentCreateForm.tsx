@@ -42,8 +42,8 @@ export const ExpensePaymentCreateForm = ({ className, firmId }: ExpensePaymentFo
       !firmId
         ? [
             { title: tCommon('menu.expense'), href: '/expense' },
-            { title: tInvoicing('expense-payment.plural'), href: '/expense/expense-payments' },
-            { title: tInvoicing('expense-payment.new') }
+            { title: tInvoicing('payment.plural'), href: '/expense/expense-payments' },
+            { title: tInvoicing('payment.new') }
           ]
         : []
     );
@@ -160,7 +160,7 @@ export const ExpensePaymentCreateForm = ({ className, firmId }: ExpensePaymentFo
                 </div>
                 <div className="flex gap-10 mt-5">
                   <Textarea
-                    placeholder={tInvoicing('expense-payment.attributes.notes')}
+                    placeholder={tInvoicing('payment.attributes.notes')}
                     className="resize-none w-2/3"
                     rows={7}
                   />

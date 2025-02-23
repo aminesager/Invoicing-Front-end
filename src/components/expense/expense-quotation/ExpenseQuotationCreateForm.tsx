@@ -64,7 +64,7 @@ export const ExpenseQuotationCreateForm = ({ className, firmId }: ExpenseQuotati
         ? [
             { title: tCommon('menu.expense'), href: '/expense' },
             { title: tInvoicing('expenseQuotation.plural'), href: '/expense/expense-quotations' },
-            { title: tInvoicing('expense-quotation.new') }
+            { title: tInvoicing('quotation.new') }
           ]
         : [
             { title: tCommon('menu.contacts'), href: '/contacts' },
