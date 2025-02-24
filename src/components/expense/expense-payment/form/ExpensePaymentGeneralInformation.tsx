@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select';
-import { Currency, Firm, INVOICE_STATUS, EXPENSE_PAYMENT_MODE } from '@/types';
+import { Currency, Firm, EXPENSE_INVOICE_STATUS, EXPENSE_PAYMENT_MODE } from '@/types';
 import { cn } from '@/lib/utils';
 import { Input } from '@/components/ui/input';
 import React from 'react';
@@ -75,9 +75,9 @@ export const ExpensePaymentGeneralInformation = ({
                   if (
                     expenseInvoice?.status &&
                     [
-                      INVOICE_STATUS.PartiallyPaid,
-                      INVOICE_STATUS.Sent,
-                      INVOICE_STATUS.Unpaid
+                      EXPENSE_INVOICE_STATUS.PartiallyPaid,
+                      EXPENSE_INVOICE_STATUS.Sent,
+                      EXPENSE_INVOICE_STATUS.Unpaid
                     ].includes(expenseInvoice?.status)
                   )
                     expenseInvoiceManager.add({

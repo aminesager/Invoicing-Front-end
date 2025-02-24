@@ -39,7 +39,7 @@ export interface ExpensePayment extends DatabaseEntity {
   mode?: EXPENSE_PAYMENT_MODE;
   notes?: string;
   uploads?: ExpensePaymentUpload[];
-  invoices?: ExpensePaymentInvoiceEntry[];
+  expenseInvoices?: ExpensePaymentInvoiceEntry[];
   currency?: Currency;
   currencyId?: number;
   firm?: Firm;

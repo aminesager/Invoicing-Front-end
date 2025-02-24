@@ -34,8 +34,8 @@ export const ExpensePaymentMain: React.FC<ExpensePaymentMainProps> = ({
   React.useEffect(() => {
     if (!firmId && !interlocutorId)
       setRoutes([
-        { title: tCommon('menu.expense'), href: '/expense' },
-        { title: tCommon('submenu.expense-payments') }
+        { title: tCommon('menu.buying'), href: '/expense' },
+        { title: tCommon('submenu.payments') }
       ]);
   }, [router.locale, firmId, interlocutorId]);
 

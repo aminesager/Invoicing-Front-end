@@ -101,7 +101,7 @@ export const DefaultConditionMain: React.FC<DefaultConditionMainProps> = ({ clas
           </div>
           <div className="mt-5 px-2">
             <h1 className="font-medium text-lg border-b pb-2">
-              {tSettings('default_condition.section.expense')} :
+              {tSettings('default_condition.section.buying')} :
             </h1>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
               {defaultConditionManager.defaultConditions
