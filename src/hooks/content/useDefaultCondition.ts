@@ -17,7 +17,7 @@ const useDefaultCondition = (
 
   const defaultCondition = React.useMemo(() => {
     if (defaultConditionResp) {
-      return defaultConditionResp[0].value;
+      return defaultConditionResp[0]?.value;
     } else return '';
   }, [defaultConditionResp]);
 

@@ -86,12 +86,12 @@ export const ExpenseInvoiceCreateForm = ({ className, firmId }: ExpenseInvoiceFo
   const { firms, isFetchFirmsPending } = useFirmChoice([
     'interlocutorsToFirm',
     'interlocutorsToFirm.interlocutor',
-    'PaymentCondition',
+    'paymentCondition',
     'invoicingAddress',
     'deliveryAddress',
     'currency'
   ]);
-  const { expenseQuotationId, isFetchExpenseQuotationPending } = useExpenseQuotationChoices(
+  const { expenseQuotations, isFetchExpenseQuotationPending } = useExpenseQuotationChoices(
     EXPENSE_QUOTATION_STATUS.Invoiced
   );
   const { cabinet, isFetchCabinetPending } = useCabinet();

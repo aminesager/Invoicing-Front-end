@@ -118,7 +118,7 @@ const create = async (
   files: File[]
 ): Promise<ExpenseQuotation> => {
   const uploadIds = await uploadExpenseQuotationFiles(files);
-  const response = await axios.post<ExpenseQuotation>('public/expenseQuotation', {
+  const response = await axios.post<ExpenseQuotation>('public/expense-quotation', {
     ...expenseQuotation,
     uploads: uploadIds.map((id) => {
       return { uploadId: id };
