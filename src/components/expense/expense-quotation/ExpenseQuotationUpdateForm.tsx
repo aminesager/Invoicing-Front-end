@@ -67,7 +67,7 @@ export const ExpenseQuotationUpdateForm = ({
     data: expenseQuotationResp,
     refetch: refetchExpenseQuotation
   } = useQuery({
-    queryKey: ['expense-quotation', expenseQuotationId],
+    queryKey: ['quotation', expenseQuotationId],
     queryFn: () => api.expenseQuotation.findOne(parseInt(expenseQuotationId))
   });
   const expenseQuotation = React.useMemo(() => {

@@ -9,7 +9,7 @@ const useExpenseQuotationSocket = () => {
   const {
     configs: [sequence],
     isConfigPending: isExpenseQuotationSequencePending
-  } = useConfig(['expense-quotation_sequence']);
+  } = useConfig(['quotation_sequence']);
 
   const [currentSequence, setCurrentSequence] = React.useState<Sequential | null>(null);
   const hasJoinedRef = React.useRef(false);
@@ -39,7 +39,7 @@ const useExpenseQuotationSocket = () => {
       socket.on('connect', handleConnect);
     }
 
-    socket.on('expense-quotation-sequence-updated', (data) => {
+    socket.on('quotation-sequence-updated', (data) => {
       setCurrentSequence((prevSequence) =>
         prevSequence ? { ...prevSequence, next: data.value } : { next: data.value }
       );
@@ -64,7 +64,7 @@ const useExpenseQuotationSocket = () => {
       }
 
       socket.off('connect', handleConnect);
-      socket.off('expense-quotation-sequence-updated');
+      socket.off('quotation-sequence-updated');
       socket.off('connect_error');
       socket.off('disconnect');
     };

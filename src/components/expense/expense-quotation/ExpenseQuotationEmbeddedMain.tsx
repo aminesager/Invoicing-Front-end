@@ -72,7 +72,7 @@ export const ExpenseQuotationEmbeddedMain: React.FC<ExpenseQuotationEmbeddedMain
     refetch: refetchExpenseQuotations
   } = useQuery({
     queryKey: [
-      'expense-quotations',
+      'quotations',
       debouncedPage,
       debouncedSize,
       debouncedSortDetails.order,
