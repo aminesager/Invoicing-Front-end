@@ -39,7 +39,9 @@ export const SequentialMain: React.FC<SequentialMainProps> = ({ className }) => 
   const sequentialsManager = useSequentialsManager();
   const { configs: sequentials, isConfigPending: isSequentialsPending } = useConfig([
     'quotation_sequence',
-    'invoice_sequence'
+    'invoice_sequence',
+    'expense-invoice_sequence',
+    'expense-invoice_sequence'
   ]);
 
   React.useEffect(() => {
@@ -51,6 +53,14 @@ export const SequentialMain: React.FC<SequentialMainProps> = ({ className }) => 
       sequentialsManager.setSequential(
         'sellingInvoice',
         sequentials.find((s) => s.key === 'invoice_sequence')?.value as UpdateSequentialDto
+      );
+      sequentialsManager.setSequential(
+        'sellingInvoice',
+        sequentials.find((s) => s.key === 'expense-invoice_sequence')?.value as UpdateSequentialDto
+      );
+      sequentialsManager.setSequential(
+        'sellingInvoice',
+        sequentials.find((s) => s.key === 'expense-invoice_sequence')?.value as UpdateSequentialDto
       );
     }
   }, [sequentials]);

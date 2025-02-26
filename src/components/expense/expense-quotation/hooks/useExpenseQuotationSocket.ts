@@ -9,7 +9,7 @@ const useExpenseQuotationSocket = () => {
   const {
     configs: [sequence],
     isConfigPending: isExpenseQuotationSequencePending
-  } = useConfig(['quotation_sequence']);
+  } = useConfig(['expense-quotation_sequence']);
 
   const [currentSequence, setCurrentSequence] = React.useState<Sequential | null>(null);
   const hasJoinedRef = React.useRef(false);

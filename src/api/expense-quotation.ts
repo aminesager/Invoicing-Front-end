@@ -198,7 +198,6 @@ const update = async (
   );
   return response.data;
 };
-
 const expenseInvoice = async (
   id?: number,
   createExpenseInvoice?: boolean
