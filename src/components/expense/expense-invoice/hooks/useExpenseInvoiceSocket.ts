@@ -9,7 +9,7 @@ const useExpenseInvoiceSocket = () => {
   const {
     configs: [sequence],
     isConfigPending: isExpenseInvoiceSequencePending
-  } = useConfig(['invoice_sequence']);
+  } = useConfig(['expense-invoice_sequence']);
 
   const [currentSequence, setCurrentSequence] = React.useState<Sequential | null>(null);
   const hasJoinedRef = React.useRef(false);
@@ -27,7 +27,7 @@ const useExpenseInvoiceSocket = () => {
 
     const handleConnect = () => {
       if (!hasJoinedRef.current) {
-        socket.emit('joinRoom', SocketRoom.EXPENSE_QUOTATION_SEQUENCE);
+        socket.emit('joinRoom', SocketRoom.EXPENSE_INVOICE_SEQUENCE);
         console.log('Joined room: EXPENSE_INVOICE_SEQUENCE');
         hasJoinedRef.current = true;
       }
@@ -39,7 +39,7 @@ const useExpenseInvoiceSocket = () => {
       socket.on('connect', handleConnect);
     }
 
-    socket.on('invoice-sequence-updated', (data) => {
+    socket.on('expense-invoice-sequence-updated', (data) => {
       setCurrentSequence((prevSequence) =>
         prevSequence ? { ...prevSequence, next: data.value } : { next: data.value }
       );
@@ -58,13 +58,13 @@ const useExpenseInvoiceSocket = () => {
 
     return () => {
       if (socket && hasJoinedRef.current) {
-        socket.emit('leaveRoom', SocketRoom.EXPENSE_QUOTATION_SEQUENCE);
+        socket.emit('leaveRoom', SocketRoom.EXPENSE_INVOICE_SEQUENCE);
         console.log('Left room: EXPENSE_INVOICE_SEQUENCE');
         hasJoinedRef.current = false;
       }
 
       socket.off('connect', handleConnect);
-      socket.off('invoice-sequence-updated');
+      socket.off('expense-invoice-sequence-updated');
       socket.off('connect_error');
       socket.off('disconnect');
     };
