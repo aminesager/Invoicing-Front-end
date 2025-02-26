@@ -28,8 +28,8 @@ export const ExpenseInvoiceMain: React.FC<ExpenseInvoiceMainProps> = ({ classNam
   const { setRoutes } = useBreadcrumb();
   React.useEffect(() => {
     setRoutes([
-      { title: tCommon('menu.expense'), href: '/expense' },
-      { title: tCommon('submenu.expense-invoices') }
+      { title: tCommon('menu.buying'), href: '/expense' },
+      { title: tCommon('submenu.invoices') }
     ]);
   }, [router.locale]);
 

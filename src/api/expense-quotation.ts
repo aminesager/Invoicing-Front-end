@@ -228,7 +228,7 @@ const validate = (expenseQuotation: Partial<ExpenseQuotation>): ToastValidation 
 const updateExpenseQuotationsSequentials = async (
   updatedSequenceDto: UpdateExpenseQuotationSequentialNumber
 ) => {
-  const response = (await axios.put)<ExpenseQuotation>(
+  const response = await axios.put<ExpenseQuotation>(
     `/public/expense-quotation/update-expense-quotation-sequences`,
     updatedSequenceDto
   );

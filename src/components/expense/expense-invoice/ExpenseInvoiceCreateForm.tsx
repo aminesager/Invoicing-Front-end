@@ -66,9 +66,9 @@ export const ExpenseInvoiceCreateForm = ({ className, firmId }: ExpenseInvoiceFo
     setRoutes(
       !firmId
         ? [
-            { title: tCommon('menu.expense'), href: '/expense' },
-            { title: tInvoicing('expenseInvoice.plural'), href: '/expense/expense-invoices' },
-            { title: tInvoicing('expenseInvoice.new') }
+            { title: tCommon('menu.buying'), href: '/expense' },
+            { title: tInvoicing('invoice.plural'), href: '/expense/expense-invoices' },
+            { title: tInvoicing('invoice.new') }
           ]
         : [
             { title: tCommon('menu.contacts'), href: '/contacts' },

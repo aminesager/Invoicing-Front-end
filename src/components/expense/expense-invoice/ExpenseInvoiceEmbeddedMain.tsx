@@ -38,7 +38,7 @@ export const ExpenseInvoiceEmbeddedMain: React.FC<ExpenseInvoiceEmbeddedMainProp
   const { setRoutes } = useBreadcrumb();
   React.useEffect(() => {
     if (routes && (firmId || interlocutorId))
-      setRoutes([...routes, { title: tCommon('submenu.expense-Invoices') }]);
+      setRoutes([...routes, { title: tCommon('submenu.Invoices') }]);
   }, [router.locale, firmId, interlocutorId, routes]);
 
   const expenseInvoiceManager = useExpenseInvoiceManager();

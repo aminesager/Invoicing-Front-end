@@ -79,9 +79,9 @@ export const ExpenseQuotationUpdateForm = ({
   React.useEffect(() => {
     if (expenseQuotation?.sequential)
       setRoutes([
-        { title: tCommon('menu.expense'), href: '/expense' },
-        { title: tInvoicing('expenseQuotation.plural'), href: '/expense/expenseQuotations' },
-        { title: tInvoicing('expenseQuotation.singular') + ' N° ' + expenseQuotation?.sequential }
+        { title: tCommon('menu.buying'), href: '/expense' },
+        { title: tInvoicing('quotation.plural'), href: '/expense/expenseQuotations' },
+        { title: tInvoicing('quotation.singular') + ' N° ' + expenseQuotation?.sequential }
       ]);
   }, [router.locale, expenseQuotation?.sequential]);
 

@@ -36,7 +36,7 @@ export const ExpensePaymentEmbeddedMain: React.FC<ExpensePaymentEmbeddedMainProp
   const { setRoutes } = useBreadcrumb();
   React.useEffect(() => {
     if (routes && (firmId || interlocutorId))
-      setRoutes([...routes, { title: tCommon('submenu.expense-payments') }]);
+      setRoutes([...routes, { title: tCommon('submenu.payments') }]);
   }, [router.locale, firmId, interlocutorId, routes]);
 
   const expensePaymentManager = useExpensePaymentManager();

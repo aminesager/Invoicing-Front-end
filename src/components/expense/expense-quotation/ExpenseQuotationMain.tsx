@@ -29,7 +29,7 @@ export const ExpenseQuotationMain: React.FC<ExpenseQuotationMainProps> = ({ clas
   const { setRoutes } = useBreadcrumb();
   React.useEffect(() => {
     setRoutes([
-      { title: tCommon('menu.expense'), href: '/expense' },
+      { title: tCommon('menu.buying'), href: '/expense' },
       { title: tCommon('submenu.quotations') }
     ]);
   }, [router.locale]);

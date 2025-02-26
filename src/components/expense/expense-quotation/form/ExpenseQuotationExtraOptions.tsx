@@ -78,7 +78,7 @@ export const ExpenseQuotationExtraOptions = ({
         </AccordionTrigger>
         <AccordionContent className="m-5">
           <Textarea
-            placeholder={tInvoicing('expense-quotation.attributes.notes')}
+            placeholder={tInvoicing('quotation.attributes.notes')}
             className="resize-none"
             value={expenseQuotationManager.notes}
             onChange={(e) => expenseQuotationManager.set('notes', e.target.value)}

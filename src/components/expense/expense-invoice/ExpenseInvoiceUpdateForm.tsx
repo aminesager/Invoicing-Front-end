@@ -85,7 +85,7 @@ export const ExpenseInvoiceUpdateForm = ({
   React.useEffect(() => {
     if (expenseInvoice?.sequential)
       setRoutes([
-        { title: tCommon('menu.expense'), href: '/expense' },
+        { title: tCommon('menu.buying'), href: '/expense' },
         { title: tInvoicing('invoice.plural'), href: '/expense/expense-invoices' },
         { title: tInvoicing('invoice.singular') + ' N° ' + expenseInvoice?.sequential }
       ]);

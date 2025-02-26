@@ -243,7 +243,7 @@ export const ExpenseQuotationArticleItem: React.FC<ExpenseQuotationArticleItemPr
 
         {/* Discount */}
         <div className="my-auto py-5">
-          <Label className="mx-1">{tInvoicing('expense-quotation.attributes.discount')}</Label>
+          <Label className="mx-1">{tInvoicing('quotation.attributes.discount')}</Label>
           <div className="flex items-center gap-2">
             {edit ? (
               <Input

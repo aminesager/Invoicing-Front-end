@@ -59,7 +59,7 @@ export const ExpensePaymentUpdateForm = ({
   React.useEffect(() => {
     if (expensePayment?.id)
       setRoutes([
-        { title: tCommon('menu.expense'), href: '/expense' },
+        { title: tCommon('menu.buying'), href: '/expense' },
         { title: tInvoicing('payment.plural'), href: '/expense/expense-payments' },
         { title: tInvoicing('payment.singular') + ' N° ' + expensePayment?.id }
       ]);

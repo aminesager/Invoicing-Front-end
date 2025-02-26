@@ -62,8 +62,8 @@ export const ExpenseQuotationCreateForm = ({ className, firmId }: ExpenseQuotati
     setRoutes(
       !firmId
         ? [
-            { title: tCommon('menu.expense'), href: '/expense' },
-            { title: tInvoicing('expenseQuotation.plural'), href: '/expense/expense-quotations' },
+            { title: tCommon('menu.buying'), href: '/expense' },
+            { title: tInvoicing('quotation.plural'), href: '/expense/expense-quotations' },
             { title: tInvoicing('quotation.new') }
           ]
         : [
