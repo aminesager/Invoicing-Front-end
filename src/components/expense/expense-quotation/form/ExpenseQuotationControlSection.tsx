@@ -215,19 +215,19 @@ export const ExpenseQuotationControlSection = ({
       },
       loading: false
     },
-    {
-      ...EXPENSE_QUOTATION_LIFECYCLE_ACTIONS.sent,
-      key: 'sent',
-      onClick: () => {
-        setActionName(tCommon('commands.send'));
-        !!handleSubmitSent &&
-          setAction(() => {
-            return () => handleSubmitSent();
-          });
-        setActionDialog(true);
-      },
-      loading: false
-    },
+    // {
+    //   ...EXPENSE_QUOTATION_LIFECYCLE_ACTIONS.sent,
+    //   key: 'sent',
+    //   onClick: () => {
+    //     setActionName(tCommon('commands.send'));
+    //     !!handleSubmitSent &&
+    //       setAction(() => {
+    //         return () => handleSubmitSent();
+    //       });
+    //     setActionDialog(true);
+    //   },
+    //   loading: false
+    // },
     {
       ...EXPENSE_QUOTATION_LIFECYCLE_ACTIONS.accepted,
       key: 'accepted',
@@ -525,7 +525,7 @@ export const ExpenseQuotationControlSection = ({
             </div>
           </div>
           {/* invoicing address switch */}
-          <div className="flex w-full items-center mt-1">
+          {/* <div className="flex w-full items-center mt-1">
             <Label className="w-full">{tInvoicing('quotation.attributes.invoicing_address')}</Label>
             <div className="w-full m-1 text-right">
               <Switch
@@ -538,9 +538,9 @@ export const ExpenseQuotationControlSection = ({
                 {...{ checked: !controlManager.isExpenseInvoiceAddressHidden }}
               />
             </div>
-          </div>
+          </div> */}
           {/* delivery address switch */}
-          <div className="flex w-full items-center mt-1">
+          {/* <div className="flex w-full items-center mt-1">
             <Label className="w-full">{tInvoicing('quotation.attributes.delivery_address')}</Label>
             <div className="w-full m-1 text-right">
               <Switch
@@ -553,7 +553,7 @@ export const ExpenseQuotationControlSection = ({
                 {...{ checked: !controlManager.isDeliveryAddressHidden }}
               />
             </div>
-          </div>
+          </div> */}
           {/* general condition switch */}
           <div className="flex w-full items-center mt-1">
             <Label className="w-full">{tInvoicing('quotation.attributes.general_condition')}</Label>

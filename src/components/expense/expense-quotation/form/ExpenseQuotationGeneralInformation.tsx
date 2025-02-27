@@ -199,7 +199,7 @@ export const ExpenseQuotationGeneralInformation = ({
             )}
           </div>
         </div>
-        {!(
+        {/* {!(
           (isInvoicingAddressHidden && isDeliveryAddressHidden) ||
           expenseQuotationManager.firm?.id == undefined
         ) && (
@@ -223,7 +223,7 @@ export const ExpenseQuotationGeneralInformation = ({
               </div>
             )}
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

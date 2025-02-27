@@ -91,9 +91,7 @@ export const ExpenseInvoiceArticleManagement: React.FC<ExpenseInvoiceArticleMana
               <CardTitle className="text-2xl flex justify-between">
                 {tInvoicing('article.manager')}
               </CardTitle>
-              <CardDescription>
-                {tInvoicing('article.manager_statement_expenseInvoice')}
-              </CardDescription>
+              <CardDescription>{tInvoicing('article.manager_statement_invoice')}</CardDescription>
             </div>
           </div>
         </CardHeader>
