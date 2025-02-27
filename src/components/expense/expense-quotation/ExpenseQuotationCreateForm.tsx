@@ -83,8 +83,8 @@ export const ExpenseQuotationCreateForm = ({ className, firmId }: ExpenseQuotati
     'interlocutorsToFirm',
     'interlocutorsToFirm.interlocutor',
     'paymentCondition',
-    'invoicingAddress',
-    'deliveryAddress',
+    // 'invoicingAddress',
+    // 'deliveryAddress',
     'currency'
   ]);
   const { cabinet, isFetchCabinetPending } = useCabinet();
@@ -246,8 +246,8 @@ export const ExpenseQuotationCreateForm = ({ className, firmId }: ExpenseQuotati
           ? DISCOUNT_TYPE.PERCENTAGE
           : DISCOUNT_TYPE.AMOUNT,
       expenseQuotationMetaData: {
-        showDeliveryAddress: !controlManager?.isDeliveryAddressHidden,
-        showExpenseInvoiceAddress: !controlManager?.isExpenseInvoiceAddressHidden,
+        // showDeliveryAddress: !controlManager?.isDeliveryAddressHidden,
+        // showExpenseInvoiceAddress: !controlManager?.isExpenseInvoiceAddressHidden,
         showArticleDescription: !controlManager?.isArticleDescriptionHidden,
         hasBankingDetails: !controlManager.isBankAccountDetailsHidden,
         hasGeneralConditions: !controlManager.isGeneralConditionsHidden
@@ -281,8 +281,8 @@ export const ExpenseQuotationCreateForm = ({ className, firmId }: ExpenseQuotati
                 <ExpenseQuotationGeneralInformation
                   className="my-5"
                   firms={firms}
-                  isInvoicingAddressHidden={controlManager.isExpenseInvoiceAddressHidden}
-                  isDeliveryAddressHidden={controlManager.isDeliveryAddressHidden}
+                  // isInvoicingAddressHidden={controlManager.isExpenseInvoiceAddressHidden}
+                  // isDeliveryAddressHidden={controlManager.isDeliveryAddressHidden}
                   loading={debounceLoading}
                 />
                 {/* Article Management */}

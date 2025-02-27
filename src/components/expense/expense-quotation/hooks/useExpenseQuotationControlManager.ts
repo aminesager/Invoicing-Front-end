@@ -2,8 +2,8 @@ import { create } from 'zustand';
 
 export type ExpenseQuotationControlManager = {
   isBankAccountDetailsHidden: boolean;
-  isExpenseInvoiceAddressHidden: boolean;
-  isDeliveryAddressHidden: boolean;
+  // isExpenseInvoiceAddressHidden: boolean;
+  // isDeliveryAddressHidden: boolean;
   isGeneralConditionsHidden: boolean;
   isArticleDescriptionHidden: boolean;
   toggle: (field: keyof ExpenseQuotationControlManager) => void;
@@ -24,8 +24,8 @@ export type ExpenseQuotationControlManager = {
 export const useExpenseQuotationControlManager = create<ExpenseQuotationControlManager>()(
   (set, get) => ({
     isBankAccountDetailsHidden: false,
-    isExpenseInvoiceAddressHidden: false,
-    isDeliveryAddressHidden: false,
+    // isExpenseInvoiceAddressHidden: false,
+    // isDeliveryAddressHidden: false,
     isGeneralConditionsHidden: false,
     isArticleDescriptionHidden: false,
     toggle: (field: keyof ExpenseQuotationControlManager) =>
@@ -41,8 +41,8 @@ export const useExpenseQuotationControlManager = create<ExpenseQuotationControlM
     reset: () =>
       set({
         isBankAccountDetailsHidden: false,
-        isExpenseInvoiceAddressHidden: false,
-        isDeliveryAddressHidden: false,
+        // isExpenseInvoiceAddressHidden: false,
+        // isDeliveryAddressHidden: false,
         isGeneralConditionsHidden: false,
         isArticleDescriptionHidden: false
       })

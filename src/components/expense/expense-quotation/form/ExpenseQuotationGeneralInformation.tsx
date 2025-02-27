@@ -23,8 +23,8 @@ import { DatePicker } from '@/components/ui/date-picker';
 interface ExpenseQuotationGeneralInformationProps {
   className?: string;
   firms: Firm[];
-  isInvoicingAddressHidden?: boolean;
-  isDeliveryAddressHidden?: boolean;
+  // isInvoicingAddressHidden?: boolean;
+  // isDeliveryAddressHidden?: boolean;
   loading?: boolean;
   edit?: boolean;
 }
@@ -32,8 +32,8 @@ interface ExpenseQuotationGeneralInformationProps {
 export const ExpenseQuotationGeneralInformation = ({
   className,
   firms,
-  isInvoicingAddressHidden,
-  isDeliveryAddressHidden,
+  // isInvoicingAddressHidden,
+  // isDeliveryAddressHidden,
   edit = true,
   loading
 }: ExpenseQuotationGeneralInformationProps) => {
