@@ -45,7 +45,7 @@ export const ExpenseQuotationExtraOptions = ({
 
   return (
     <Accordion type="multiple" className={cn(className, 'mx-1 border-b')}>
-      <AccordionItem value="item-1">
+      {/* <AccordionItem value="item-1">
         <AccordionTrigger>
           <div className="flex gap-2 justify-center items-center">
             <Files />
@@ -68,7 +68,7 @@ export const ExpenseQuotationExtraOptions = ({
             onValueChange={handleFilesChange}
           />
         </AccordionContent>
-      </AccordionItem>
+      </AccordionItem> */}
       <AccordionItem value="item-2">
         <AccordionTrigger>
           <div className="flex gap-2 justify-center items-center">
