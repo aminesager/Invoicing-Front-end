@@ -80,7 +80,7 @@ export const ExpenseQuotationUpdateForm = ({
     if (expenseQuotation?.sequential)
       setRoutes([
         { title: tCommon('menu.buying'), href: '/expense' },
-        { title: tInvoicing('quotation.plural'), href: '/expense/expenseQuotations' },
+        { title: tInvoicing('quotation.plural'), href: '/expense/expense-quotations' },
         { title: tInvoicing('quotation.singular') + ' N° ' + expenseQuotation?.sequential }
       ]);
   }, [router.locale, expenseQuotation?.sequential]);

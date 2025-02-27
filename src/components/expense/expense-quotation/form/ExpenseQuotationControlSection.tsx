@@ -215,19 +215,19 @@ export const ExpenseQuotationControlSection = ({
       },
       loading: false
     },
-    // {
-    //   ...EXPENSE_QUOTATION_LIFECYCLE_ACTIONS.sent,
-    //   key: 'sent',
-    //   onClick: () => {
-    //     setActionName(tCommon('commands.send'));
-    //     !!handleSubmitSent &&
-    //       setAction(() => {
-    //         return () => handleSubmitSent();
-    //       });
-    //     setActionDialog(true);
-    //   },
-    //   loading: false
-    // },
+    {
+      ...EXPENSE_QUOTATION_LIFECYCLE_ACTIONS.sent,
+      key: 'sent',
+      onClick: () => {
+        setActionName(tCommon('commands.send'));
+        !!handleSubmitSent &&
+          setAction(() => {
+            return () => handleSubmitSent();
+          });
+        setActionDialog(true);
+      },
+      loading: false
+    },
     {
       ...EXPENSE_QUOTATION_LIFECYCLE_ACTIONS.accepted,
       key: 'accepted',
