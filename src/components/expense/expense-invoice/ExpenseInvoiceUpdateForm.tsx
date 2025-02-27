@@ -101,8 +101,8 @@ export const ExpenseInvoiceUpdateForm = ({
   const { firms, isFetchFirmsPending } = useFirmChoice([
     'interlocutorsToFirm',
     'interlocutorsToFirm.interlocutor',
-    'invoicingAddress',
-    'deliveryAddress',
+    // 'invoicingAddress',
+    // 'deliveryAddress',
     'currency'
   ]);
   const { expenseQuotations, isFetchExpenseQuotationPending } = useExpenseQuotationChoices(
@@ -213,8 +213,8 @@ export const ExpenseInvoiceUpdateForm = ({
     //invoice meta infos
     controlManager.setControls({
       isBankAccountDetailsHidden: !data?.expenseInvoiceMetaData?.hasBankingDetails,
-      isExpenseInvoiceAddressHidden: !data?.expenseInvoiceMetaData?.showExpenseInvoiceAddress,
-      isDeliveryAddressHidden: !data?.expenseInvoiceMetaData?.showDeliveryAddress,
+      // isExpenseInvoiceAddressHidden: !data?.expenseInvoiceMetaData?.showExpenseInvoiceAddress,
+      // isDeliveryAddressHidden: !data?.expenseInvoiceMetaData?.showDeliveryAddress,
       isArticleDescriptionHidden: !data?.expenseInvoiceMetaData?.showArticleDescription,
       isGeneralConditionsHidden: !data?.expenseInvoiceMetaData?.hasGeneralConditions,
       isTaxStampHidden: !data?.expenseInvoiceMetaData?.hasTaxStamp,
@@ -309,8 +309,8 @@ export const ExpenseInvoiceUpdateForm = ({
       taxStampId: expenseInvoiceManager?.taxStampId,
       taxWithholdingId: expenseInvoiceManager?.taxWithholdingId,
       expenseInvoiceMetaData: {
-        showDeliveryAddress: !controlManager?.isDeliveryAddressHidden,
-        showExpenseInvoiceAddress: !controlManager?.isExpenseInvoiceAddressHidden,
+        // showDeliveryAddress: !controlManager?.isDeliveryAddressHidden,
+        // showExpenseInvoiceAddress: !controlManager?.isExpenseInvoiceAddressHidden,
         showArticleDescription: !controlManager?.isArticleDescriptionHidden,
         hasBankingDetails: !controlManager.isBankAccountDetailsHidden,
         hasGeneralConditions: !controlManager.isGeneralConditionsHidden,
@@ -344,8 +344,8 @@ export const ExpenseInvoiceUpdateForm = ({
                 <ExpenseInvoiceGeneralInformation
                   className="my-5"
                   firms={firms}
-                  isInvoicingAddressHidden={controlManager.isExpenseInvoiceAddressHidden}
-                  isDeliveryAddressHidden={controlManager.isDeliveryAddressHidden}
+                  // isInvoicingAddressHidden={controlManager.isExpenseInvoiceAddressHidden}
+                  // isDeliveryAddressHidden={controlManager.isDeliveryAddressHidden}
                   edit={editMode}
                   loading={debounceFetching}
                 />

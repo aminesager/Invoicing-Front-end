@@ -33,8 +33,6 @@ const factory = (): CreateExpenseQuotationDto => {
     notes: '',
     articleExpenseQuotationEntries: [],
     expenseQuotationMetaData: {
-      showDeliveryAddress: true,
-      showExpenseInvoiceAddress: true,
       hasBankingDetails: true,
       hasGeneralConditions: true,
       showArticleDescription: true,
@@ -94,8 +92,7 @@ const findOne = async (
     'uploads',
     'invoices',
     'uploads.upload',
-    'firm.deliveryAddress',
-    'firm.invoicingAddress',
+
     'articleExpenseQuotationEntries',
     'firm.interlocutorsToFirm',
     'articleExpenseQuotationEntries.article',

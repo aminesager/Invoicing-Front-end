@@ -517,7 +517,7 @@ export const ExpenseInvoiceControlSection = ({
             </div>
           </div>
           {/* invoicing address switch */}
-          <div className="flex w-full items-center mt-1">
+          {/* <div className="flex w-full items-center mt-1">
             <Label className="w-full">{tInvoicing('invoice.attributes.invoicing_address')}</Label>
             <div className="w-full m-1 text-right">
               <Switch
@@ -530,9 +530,9 @@ export const ExpenseInvoiceControlSection = ({
                 {...{ checked: !controlManager.isExpenseInvoiceAddressHidden }}
               />
             </div>
-          </div>
+          </div> */}
           {/* delivery address switch */}
-          <div className="flex w-full items-center mt-1">
+          {/* <div className="flex w-full items-center mt-1">
             <Label className="w-full">{tInvoicing('invoice.attributes.delivery_address')}</Label>
             <div className="w-full m-1 text-right">
               <Switch
@@ -545,7 +545,7 @@ export const ExpenseInvoiceControlSection = ({
                 {...{ checked: !controlManager.isDeliveryAddressHidden }}
               />
             </div>
-          </div>
+          </div> */}
           {/* general condition switch */}
           <div className="flex w-full items-center mt-1">
             <Label className="w-full">{tInvoicing('invoice.attributes.general_condition')}</Label>

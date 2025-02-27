@@ -23,8 +23,8 @@ import { DatePicker } from '@/components/ui/date-picker';
 interface ExpenseInvoiceGeneralInformationProps {
   className?: string;
   firms: Firm[];
-  isInvoicingAddressHidden?: boolean;
-  isDeliveryAddressHidden?: boolean;
+  // isInvoicingAddressHidden?: boolean;
+  // isDeliveryAddressHidden?: boolean;
   edit?: boolean;
   loading?: boolean;
 }
@@ -32,8 +32,8 @@ interface ExpenseInvoiceGeneralInformationProps {
 export const ExpenseInvoiceGeneralInformation = ({
   className,
   firms,
-  isInvoicingAddressHidden,
-  isDeliveryAddressHidden,
+  // isInvoicingAddressHidden,
+  // isDeliveryAddressHidden,
   edit = true,
   loading
 }: ExpenseInvoiceGeneralInformationProps) => {
@@ -194,7 +194,7 @@ export const ExpenseInvoiceGeneralInformation = ({
             )}
           </div>
         </div>
-        {!(
+        {/* {!(
           (isInvoicingAddressHidden && isDeliveryAddressHidden) ||
           expenseInvoiceManager.firm?.id == undefined
         ) && (
@@ -218,7 +218,7 @@ export const ExpenseInvoiceGeneralInformation = ({
               </div>
             )}
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

@@ -87,8 +87,8 @@ export const ExpenseInvoiceCreateForm = ({ className, firmId }: ExpenseInvoiceFo
     'interlocutorsToFirm',
     'interlocutorsToFirm.interlocutor',
     'paymentCondition',
-    'invoicingAddress',
-    'deliveryAddress',
+    // 'invoicingAddress',
+    // 'deliveryAddress',
     'currency'
   ]);
   const { expenseQuotations, isFetchExpenseQuotationPending } = useExpenseQuotationChoices(
@@ -275,8 +275,8 @@ export const ExpenseInvoiceCreateForm = ({ className, firmId }: ExpenseInvoiceFo
       taxStampId: expenseInvoiceManager?.taxStampId,
       taxWithholdingId: expenseInvoiceManager?.taxWithholdingId,
       expenseInvoiceMetaData: {
-        showDeliveryAddress: !controlManager?.isDeliveryAddressHidden,
-        showExpenseInvoiceAddress: !controlManager?.isExpenseInvoiceAddressHidden,
+        // showDeliveryAddress: !controlManager?.isDeliveryAddressHidden,
+        // showExpenseInvoiceAddress: !controlManager?.isExpenseInvoiceAddressHidden,
         showArticleDescription: !controlManager?.isArticleDescriptionHidden,
         hasBankingDetails: !controlManager.isBankAccountDetailsHidden,
         hasGeneralConditions: !controlManager.isGeneralConditionsHidden,
@@ -311,8 +311,8 @@ export const ExpenseInvoiceCreateForm = ({ className, firmId }: ExpenseInvoiceFo
                 <ExpenseInvoiceGeneralInformation
                   className="my-5"
                   firms={firms}
-                  isInvoicingAddressHidden={controlManager.isExpenseInvoiceAddressHidden}
-                  isDeliveryAddressHidden={controlManager.isDeliveryAddressHidden}
+                  // isInvoicingAddressHidden={controlManager.isExpenseInvoiceAddressHidden}
+                  // isDeliveryAddressHidden={controlManager.isDeliveryAddressHidden}
                   loading={isFetchFirmsPending || isExpenseInvoiceSequencePending}
                 />
                 {/* Article Management */}
