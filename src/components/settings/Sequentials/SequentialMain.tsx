@@ -54,14 +54,6 @@ export const SequentialMain: React.FC<SequentialMainProps> = ({ className }) => 
         'sellingInvoice',
         sequentials.find((s) => s.key === 'invoice_sequence')?.value as UpdateSequentialDto
       );
-      sequentialsManager.setSequential(
-        'sellingInvoice',
-        sequentials.find((s) => s.key === 'expense-invoice_sequence')?.value as UpdateSequentialDto
-      );
-      sequentialsManager.setSequential(
-        'sellingInvoice',
-        sequentials.find((s) => s.key === 'expense-invoice_sequence')?.value as UpdateSequentialDto
-      );
     }
   }, [sequentials]);
 
