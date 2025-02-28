@@ -17,11 +17,7 @@ import { create } from 'zustand';
 type ExpenseQuotationManager = {
   // data
   id?: number;
-  sequentialNumber: {
-    dynamicSequence: DATE_FORMAT;
-    next: number;
-    prefix: string;
-  };
+  // sequentialNumber: string;
   sequential: string;
   date: Date | undefined;
   dueDate: Date | undefined;
@@ -79,11 +75,7 @@ const initialState: Omit<
   'set' | 'reset' | 'setFirm' | 'setInterlocutor' | 'getExpenseQuotation' | 'setExpenseQuotation'
 > = {
   id: -1,
-  sequentialNumber: {
-    prefix: '',
-    dynamicSequence: DATE_FORMAT.yy_MM,
-    next: 0
-  },
+  // sequentialNumber: '0001',
   sequential: '',
   date: undefined,
   dueDate: undefined,
@@ -145,7 +137,8 @@ export const useExpenseQuotationManager = create<ExpenseQuotationManager>((set, 
   getExpenseQuotation: () => {
     const {
       id,
-      sequentialNumber,
+      // sequentialNumber,
+      sequential,
       date,
       dueDate,
       object,
@@ -163,7 +156,8 @@ export const useExpenseQuotationManager = create<ExpenseQuotationManager>((set, 
 
     return {
       id,
-      sequentialNumber,
+      // sequentialNumber,
+      sequential,
       date,
       dueDate,
       object,
@@ -186,7 +180,7 @@ export const useExpenseQuotationManager = create<ExpenseQuotationManager>((set, 
     set((state) => ({
       ...state,
       id: expenseQuotation?.id,
-      sequentialNumber: fromStringToSequentialObject(expenseQuotation?.sequential || ''),
+      sequential: expenseQuotation?.sequential,
       date: expenseQuotation?.date ? new Date(expenseQuotation?.date) : undefined,
       dueDate: expenseQuotation?.dueDate ? new Date(expenseQuotation?.dueDate) : undefined,
       object: expenseQuotation?.object,

@@ -118,7 +118,8 @@ export interface CreateExpenseQuotationDto
     | 'articles'
     | 'firm'
     | 'interlocutor'
-    | 'sequential'
+    // | 'sequential'
+    // | 'sequentialNumber'
     | 'bankAccount'
     | 'expenseInvoices'
   > {

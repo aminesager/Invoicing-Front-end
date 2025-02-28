@@ -214,6 +214,7 @@ const validate = (expenseQuotation: Partial<ExpenseQuotation>): ToastValidation 
   if (!expenseQuotation.date) return { message: 'La date est obligatoire' };
   if (!expenseQuotation.dueDate) return { message: "L'échéance est obligatoire" };
   if (!expenseQuotation.object) return { message: "L'objet est obligatoire" };
+  if (!expenseQuotation.sequential) return { message: 'Le numero sequentiel est obligatoire' };
   if (differenceInDays(new Date(expenseQuotation.date), new Date(expenseQuotation.dueDate)) >= 0)
     return { message: "L'échéance doit être supérieure à la date" };
   if (!expenseQuotation.firmId || !expenseQuotation.interlocutorId)

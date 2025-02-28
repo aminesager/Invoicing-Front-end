@@ -255,6 +255,7 @@ export const ExpenseQuotationUpdateForm = ({
 
     const expenseQuotation: UpdateExpenseQuotationDto = {
       id: expenseQuotationManager?.id,
+      sequential: expenseQuotationManager?.sequential,
       date: expenseQuotationManager?.date?.toString(),
       dueDate: expenseQuotationManager?.dueDate?.toString(),
       object: expenseQuotationManager?.object,

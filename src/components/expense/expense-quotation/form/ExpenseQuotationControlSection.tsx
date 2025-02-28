@@ -298,7 +298,7 @@ export const ExpenseQuotationControlSection = ({
       loading: false
     }
   ];
-  const sequential = fromSequentialObjectToString(expenseQuotationManager.sequentialNumber);
+  const sequential = expenseQuotationManager.sequential;
   return (
     <>
       <ExpenseQuotationActionDialog

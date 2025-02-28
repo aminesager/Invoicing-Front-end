@@ -18,7 +18,7 @@ import { getErrorMessage } from '@/utils/errors';
 import { DISCOUNT_TYPE } from '@/types/enums/discount-types';
 import { useExpenseQuotationManager } from '@/components/expense/expense-quotation/hooks/useExpenseQuotationManager';
 import { useExpenseQuotationArticleManager } from './hooks/useExpenseQuotationArticleManager';
-import useExpenseQuotationSocket from './hooks/useExpenseQuotationSocket';
+// import useExpenseQuotationSocket from './hooks/useExpenseQuotationSocket';
 import { useDebounce } from '@/hooks/other/useDebounce';
 import { useExpenseQuotationControlManager } from './hooks/useExpenseQuotationControlManager';
 import useCurrency from '@/hooks/content/useCurrency';
@@ -98,16 +98,16 @@ export const ExpenseQuotationCreateForm = ({ className, firmId }: ExpenseQuotati
   );
 
   //websocket to listen for server changes related to sequence number
-  const { currentSequence, isExpenseQuotationSequencePending } = useExpenseQuotationSocket();
-  //handle Sequential Number
-  React.useEffect(() => {
-    expenseQuotationManager.set('sequentialNumber', currentSequence);
-    expenseQuotationManager.set(
-      'bankAccount',
-      bankAccounts.find((a) => a.isMain)
-    );
-    expenseQuotationManager.set('currency', cabinet?.currency);
-  }, [currentSequence]);
+  // const { currentSequence, isExpenseQuotationSequencePending } = useExpenseQuotationSocket();
+  // //handle Sequential Number
+  // React.useEffect(() => {
+  //   expenseQuotationManager.set('sequentialNumber', currentSequence);
+  //   expenseQuotationManager.set(
+  //     'bankAccount',
+  //     bankAccounts.find((a) => a.isMain)
+  //   );
+  //   expenseQuotationManager.set('currency', cabinet?.currency);
+  // }, [currentSequence]);
 
   // perform calculations when the financialy Information are changed
   const digitAfterComma = React.useMemo(() => {
@@ -187,8 +187,10 @@ export const ExpenseQuotationCreateForm = ({ className, firmId }: ExpenseQuotati
     isFetchBankAccountsPending ||
     isFetchCurrenciesPending ||
     isFetchDefaultConditionPending ||
-    isExpenseQuotationSequencePending;
-  !commonReady || !invoicingReady || isCreatePending;
+    // isExpenseQuotationSequencePending;
+    !commonReady ||
+    !invoicingReady ||
+    isCreatePending;
   const { value: debounceLoading } = useDebounce<boolean>(loading, 500);
 
   //Reset Form
@@ -225,6 +227,7 @@ export const ExpenseQuotationCreateForm = ({ className, firmId }: ExpenseQuotati
         })
       }));
     const expenseQuotation: CreateExpenseQuotationDto = {
+      sequential: expenseQuotationManager?.sequential,
       date: expenseQuotationManager?.date?.toString(),
       dueDate: expenseQuotationManager?.dueDate?.toString(),
       object: expenseQuotationManager?.object,

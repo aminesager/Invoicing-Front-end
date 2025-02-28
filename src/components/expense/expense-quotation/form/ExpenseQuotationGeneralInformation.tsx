@@ -10,10 +10,10 @@ import {
   SelectValue
 } from '@/components/ui/select';
 import React from 'react';
-import { AddressDetails } from '../../../invoicing-commons/AddressDetails';
+// import { AddressDetails } from '../../../invoicing-commons/AddressDetails';
 import { cn } from '@/lib/utils';
 import { useExpenseQuotationManager } from '@/components/expense/expense-quotation/hooks/useExpenseQuotationManager';
-import { SequenceInput } from '@/components/invoicing-commons/SequenceInput';
+// import { ExpSequenceInput } from '@/components/invoicing-commons/ExpSequenceInput';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import { UneditableCalendarDayPicker } from '@/components/ui/uneditable/uneditable-calendar-day-picker';
@@ -89,7 +89,7 @@ export const ExpenseQuotationGeneralInformation = ({
           {edit ? (
             <Input
               className="mt-1"
-              placeholder="Ex. Devis pour le 1er trimestre 2024"
+              placeholder="Ex. Devis pour le 1er trimestre 2025"
               value={expenseQuotationManager.object || ''}
               onChange={(e) => {
                 expenseQuotationManager.set('object', e.target.value);
@@ -100,15 +100,23 @@ export const ExpenseQuotationGeneralInformation = ({
             <UneditableInput value={expenseQuotationManager.object} />
           )}
         </div>
+
         {/* Sequential */}
-        <div className="w-2/6">
-          <Label>{tInvoicing('quotation.singular')} N°</Label>
-          <SequenceInput
-            prefix={expenseQuotationManager.sequentialNumber?.prefix}
-            dateFormat={expenseQuotationManager.sequentialNumber?.dynamicSequence}
-            value={expenseQuotationManager.sequentialNumber?.next}
-            loading={loading}
-          />
+        <div className="w-4/6">
+          <Label>{tInvoicing('quotation.attributes.sequential')} (*)</Label>
+          {edit ? (
+            <Input
+              className="mt-1"
+              placeholder="entrez le numero sequence"
+              value={expenseQuotationManager.sequential || ''}
+              onChange={(e) => {
+                expenseQuotationManager.set('sequential', e.target.value);
+              }}
+              isPending={loading}
+            />
+          ) : (
+            <UneditableInput value={expenseQuotationManager.sequential} />
+          )}
         </div>
       </div>
       <div>
