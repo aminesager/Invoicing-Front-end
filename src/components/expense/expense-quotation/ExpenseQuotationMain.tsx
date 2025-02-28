@@ -215,7 +215,7 @@ export const ExpenseQuotationMain: React.FC<ExpenseQuotationMainProps> = ({ clas
         isDownloadPending={isDownloadPending}
         onClose={() => setDownloadDialog(false)}
       />
-      {/* <ExpenseQuotationInvoiceDialog
+      <ExpenseQuotationInvoiceDialog
         id={expenseQuotationManager?.id || 0}
         status={expenseQuotationManager?.status}
         sequential={expenseQuotationManager?.sequential}
@@ -225,7 +225,7 @@ export const ExpenseQuotationMain: React.FC<ExpenseQuotationMainProps> = ({ clas
           invoiceExpenseQuotation({ id, createExpenseInvoice });
         }}
         onClose={() => setExpenseInvoiceDialog(false)}
-      /> */}
+      />
       <ExpenseQuotationActionsContext.Provider value={context}>
         <Card className={className}>
           <CardHeader>

@@ -282,7 +282,7 @@ export const ExpenseQuotationCreateForm = ({ className, firmId }: ExpenseQuotati
             <Card className="border-0">
               <CardContent className="p-5">
                 {/* General Information */}
-                <ExpenseQuotationUpload />
+                <ExpenseQuotationUpload className="my-5" />
                 <ExpenseQuotationGeneralInformation
                   className="my-5"
                   firms={firms}

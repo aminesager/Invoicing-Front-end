@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/dialog';
 import { Spinner } from '@/components/common';
 import { Label } from '@/components/ui/label';
-import { File } from 'lucide-react';
+import { File, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useMediaQuery } from '@/hooks/other/useMediaQuery';
@@ -43,30 +43,16 @@ export const ExpenseQuotationDownloadDialog: React.FC<ExpenseQuotationDownloadDi
   const isDesktop = useMediaQuery('(min-width: 1500px)');
 
   const body = (
-    <div className={cn(className, 'grid grid-cols-2 gap-4')}>
-      <div
-        className="flex gap-2 items-center cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-500 rounded-lg p-4"
-        onClick={() => downloadExpenseQuotation('template1')}>
-        <File />
-        <Label>Template 1</Label>
-        <Spinner className="ml-2" size={'small'} show={isDownloadPending} />
-      </div>
-
-      <div
-        className="flex gap-2 items-center cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-500 rounded-lg p-4"
-        onClick={() => downloadExpenseQuotation('template2')}>
-        <File />
-        <Label className="cursor-pointer">Template 2</Label>
-        <Spinner className="ml-2" size={'small'} show={isDownloadPending} />
-      </div>
-
-      <div
-        className="flex gap-2 items-center cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-500 rounded-lg p-4"
-        onClick={() => downloadExpenseQuotation('template3')}>
-        <File />
-        <Label className="cursor-pointer">Template 3</Label>
-        <Spinner className="ml-2" size={'small'} show={isDownloadPending} />
-      </div>
+    <div className={cn(className, 'flex gap-2 mt-2 items-center justify-center')}>
+      <Button className="w-1/2 flex gap-2">{tCommon('commands.download')}</Button>
+      <Button
+        className="w-1/2 flex gap-2"
+        variant={'secondary'}
+        onClick={() => {
+          onClose();
+        }}>
+        {tCommon('Cancel')}
+      </Button>
     </div>
   );
 
@@ -76,7 +62,7 @@ export const ExpenseQuotationDownloadDialog: React.FC<ExpenseQuotationDownloadDi
         <DialogContent className={cn('max-w-[30vw] p-8', className)}>
           <DialogHeader>
             <DialogTitle>Telechargement</DialogTitle>
-            <DialogDescription>Vous pouvez choisir le modèle que vous souhaitez</DialogDescription>
+            <DialogDescription>Voulez vous telecharger le piéce jointe ?</DialogDescription>
           </DialogHeader>
           <div>{body}</div>
         </DialogContent>

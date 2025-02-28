@@ -39,6 +39,7 @@ import { ExpenseQuotationFinancialInformation } from './form/ExpenseQuotationFin
 import { ExpenseQuotationControlSection } from './form/ExpenseQuotationControlSection';
 import dinero from 'dinero.js';
 import { createDineroAmountFromFloatWithDynamicCurrency } from '@/utils/money.utils';
+import { ExpenseQuotationUpload } from './form/ExpenseQuotationUpload';
 
 interface ExpenseQuotationFormProps {
   className?: string;
@@ -308,6 +309,7 @@ export const ExpenseQuotationUpdateForm = ({
           <ScrollArea className=" max-h-[calc(100vh-120px)] border rounded-lg">
             <Card className="border-0">
               <CardContent className="p-5">
+                <ExpenseQuotationUpload className="my-5" />
                 <ExpenseQuotationGeneralInformation
                   className="my-5"
                   firms={firms}
